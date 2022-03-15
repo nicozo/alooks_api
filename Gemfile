@@ -23,11 +23,14 @@ gem 'puma', '~> 5.0'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
+  # 環境変数用のgem Doc: https://github.com/bkeepers/dotenv/
+  gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 end
 
 group :development do

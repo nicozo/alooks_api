@@ -24,6 +24,11 @@ module Api
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    config.generators do |g|
+      #testファイルの自動生成を不可
+      g.test_framework false
+    end
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
