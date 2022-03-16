@@ -35,7 +35,7 @@ module Api
 
     config.generators do |g|
       #testファイルの自動生成を不可
-      g.test_framework false
+      g.test_framework :rspec
     end
 
     # Configuration for the application, engines, and railties goes here.
