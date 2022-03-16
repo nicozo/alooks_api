@@ -25,6 +25,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
+# ログイン機能 Doc: https://github.com/Sorcery/sorcery/
+gem 'sorcery', '~> 0.16.3'
+
+# Enum用 Doc: https://github.com/zmbacker/enum_help/
+gem 'enum_help', '~> 0.0.17'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
