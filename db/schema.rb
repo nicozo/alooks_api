@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2022_03_16_012551) do
     t.string "salt"
     t.string "name", null: false
     t.text "self_introduction"
-    t.date "date_of_birth", null: false
+    t.date "date_of_birth"
     t.integer "sex", default: 0, null: false
     t.integer "role", default: 0, null: false
     t.datetime "created_at", precision: 6, null: false
