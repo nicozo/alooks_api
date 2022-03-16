@@ -6,7 +6,7 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
 
   validates :email, presence: true, uniqueness: true
-  validates :name,  presence: true, length: { maximum: 30 }
+  validates :name,  presence: true, length: { maximum: 30, allow_blank: true }
   validates :self_introduction, length: { maximum: 255 }
   validates :date_of_birth, presence: true
   
