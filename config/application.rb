@@ -24,6 +24,15 @@ module Api
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # Railsアプリデフォルトのタイムゾーン
+    config.time_zone = ENV['TZ']
+
+    # データベースから日付・時刻を取り出した際のタイムゾーン
+    config.active_record.default_timezone = :local
+
+    # Zeitwerk有効時false推奨
+    config.add_autoload_paths_to_load_path = false
+
     config.generators do |g|
       #testファイルの自動生成を不可
       g.test_framework false
