@@ -46,11 +46,11 @@ group :development, :test do
   # FactoryBot Doc: https://github.com/thoughtbot/factory_bot_rails/
   gem 'factory_bot_rails', '~> 4.11'
   # rubocop Doc: https://github.com/rubocop/rubocop/
-  gem 'rubocop', '~> 1.26', '>= 1.26.1'
+  gem 'rubocop', '~> 1.26', '>= 1.26.1', require: false
   # rubocop-rails Doc: https://github.com/rubocop/rubocop-rails
-  gem 'rubocop-rails', '~> 2.14', '>= 2.14.2'
+  gem 'rubocop-rails', '~> 2.14', '>= 2.14.2', require: false
   # rubocop-checkstyle_formatter Doc: https://github.com/eitoball/rubocop-checkstyle_formatter/
-  gem 'rubocop-checkstyle_formatter', '~> 0.5.0'
+  gem 'rubocop-checkstyle_formatter', '~> 0.5.0', require: false
 end
 
 group :development do
