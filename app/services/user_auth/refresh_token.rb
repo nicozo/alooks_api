@@ -20,8 +20,7 @@ module UserAuth
       end
     end
 
-    def entity_for_user(user_id)
-      id ||= @user_id
+    def entity_for_user(id)
       User.find(decrypt_for(id))
     end
 
@@ -67,6 +66,7 @@ module UserAuth
       false
     end
 
+    # https://www.rubydoc.info/gems/jwt/JWT%2FVerify:verify_jti
     def verify_claims
       {
         verify_expiration: true,
