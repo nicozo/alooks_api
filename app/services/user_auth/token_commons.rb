@@ -13,7 +13,7 @@ module UserAuth
     end
 
     def get_user_id_from(payload)
-      payload[user_claim]
+      payload.deep_symbolize_keys[user_claim]
     end
 
     def crypt
