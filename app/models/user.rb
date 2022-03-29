@@ -16,7 +16,7 @@ class User < ApplicationRecord
     update!(refresh_jti: jti)
   end
 
-  def forget(jti)
+  def forget
     update!(refresh_jti: nil)
   end
 end
