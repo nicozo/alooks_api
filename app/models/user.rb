@@ -11,4 +11,12 @@ class User < ApplicationRecord
   
   enum sex: { male: 0, female: 1 }
   enum role: { general: 0, admin: 1 }
+
+  def remember(jti)
+    update!(refresh_jti: jti)
+  end
+
+  def forget(jti)
+    update!(refresh_jti: nil)
+  end
 end
