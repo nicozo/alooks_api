@@ -20,7 +20,8 @@ module UserAuth
       end
     end
 
-    def entity_for_user(id)
+    def entity_for_user(id = nil)
+      id ||= @user_id
       User.find(decrypt_for(id))
     end
 
