@@ -24,6 +24,12 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
+# ログイン機能 Doc: https://github.com/Sorcery/sorcery/
+gem 'sorcery', '~> 0.16.3'
+# Enum用 Doc: https://github.com/zmbacker/enum_help/
+gem 'enum_help', '~> 0.0.17'
+# JWT認証用 Doc: https://github.com/jwt/ruby-jwt/
+gem 'jwt', '~> 2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -31,12 +37,20 @@ group :development, :test do
 
   # N+1問題用 Doc: https://github.com/flyerhzm/bullet/
   gem 'bullet', '~> 7.0', '>= 7.0.1'
-
   # デバッグ用 Doc: https://github.com/deivid-rodriguez/pry-byebug/
   gem 'pry-byebug', '~> 3.9'
-
   # 環境変数用のgem Doc: https://github.com/bkeepers/dotenv/
   gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
+  # Rails Rspec Doc: https://github.com/rspec/rspec-rails/
+  gem 'rspec-rails', '~> 5.1', '>= 5.1.1'
+  # FactoryBot Doc: https://github.com/thoughtbot/factory_bot_rails/
+  gem 'factory_bot_rails', '~> 4.11'
+  # rubocop Doc: https://github.com/rubocop/rubocop/
+  gem 'rubocop', '~> 1.26', '>= 1.26.1', require: false
+  # rubocop-rails Doc: https://github.com/rubocop/rubocop-rails
+  gem 'rubocop-rails', '~> 2.14', '>= 2.14.2', require: false
+  # rubocop-checkstyle_formatter Doc: https://github.com/eitoball/rubocop-checkstyle_formatter/
+  gem 'rubocop-checkstyle_formatter', '~> 0.5.0', require: false
 end
 
 group :development do
