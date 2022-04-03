@@ -1,6 +1,8 @@
 class Api::V1::SessionsController < ApplicationController
   include UserSessionize
 
+  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+
   before_action :sessionize_user, only: %i[refresh destroy]
 
   def create
