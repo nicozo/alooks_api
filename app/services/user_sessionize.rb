@@ -1,6 +1,6 @@
 module UserSessionize
   def sessionize_user
-    session_user.parent? || unauthorized
+    session_user.present? || unauthorized
   end
 
   def delete_session
