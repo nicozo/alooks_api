@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         post :refresh, on: :collection
       end
       resource :registers, only: %i[create]
+      resources :rooms
     end
   end
 end
