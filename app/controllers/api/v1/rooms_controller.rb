@@ -1,5 +1,5 @@
 class Api::V1::RoomsController < ApplicationController
-  # before_action :set_room, only: %i[show]
+  before_action :set_room, only: %i[show]
 
   def index
     @rooms = Room.all.includes(:user).order(created_at: :desc)
@@ -9,7 +9,7 @@ class Api::V1::RoomsController < ApplicationController
   def new; end
 
   def show
-    # render json: @room
+    render json: @room
   end
 
   def create
