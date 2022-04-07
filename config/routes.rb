@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
       namespace :admin do
         resources :platforms, only: %i[index create edit update destroy]
+        resources :game_mode, only: %i[index create edit update destroy]
       end
     end
   end
