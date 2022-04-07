@@ -6,7 +6,11 @@ Rails.application.routes.draw do
         post :refresh, on: :collection
       end
       resource :registers, only: %i[create]
-      resources :rooms
+      resources :rooms, only: %i[index show create edit update destroy]
+
+      namespace :admin do
+        resources :platforms, only: %i[index create edit update destroy]
+      end
     end
   end
 end
