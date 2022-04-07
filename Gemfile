@@ -51,6 +51,8 @@ group :development, :test do
   gem 'rubocop-rails', '~> 2.14', '>= 2.14.2', require: false
   # rubocop-checkstyle_formatter Doc: https://github.com/eitoball/rubocop-checkstyle_formatter/
   gem 'rubocop-checkstyle_formatter', '~> 0.5.0', require: false
+  # ダミーデータ用 Doc: https://github.com/faker-ruby/faker
+  gem 'faker', '~> 2.20'
 end
 
 group :development do
