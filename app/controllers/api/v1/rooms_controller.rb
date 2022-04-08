@@ -2,14 +2,14 @@ class Api::V1::RoomsController < ApplicationController
   before_action :set_room, only: %i[show]
 
   def index
-    @rooms = Room.all.includes(:user).order(created_at: :desc)
-    render json: @rooms
+    @rooms = Room.all.includes(%i[user platform game_mode rank_tier]).order(created_at: :desc)
+    render json: @rooms.as_json(include: %i[user platform game_mode rank_tier])
   end
 
   def new; end
 
   def show
-    render json: @room
+    render json: @room.as_json(include: %i[user platform game_mode rank_tier])
   end
 
   def create
