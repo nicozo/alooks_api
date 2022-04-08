@@ -36,6 +36,7 @@ module Api
     config.generators do |g|
       #testファイルの自動生成を不可
       g.test_framework :rspec
+      g.skip_routes true
     end
 
     # Cookieを処理するmiddleware
