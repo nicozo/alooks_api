@@ -17,14 +17,37 @@
   )
 end
 
-platform_name = ["PlayStation", "Xbox", "PC", "Switch"]
+platform_name = [
+  "PlayStation",
+  "Xbox",
+  "PC",
+  "Switch"
+]
 platform_name.length.times do |n|
   Platform.create!(name: platform_name[n])
 end
 
-game_mode_name = ["ランク", "カジュアル", "アリーナ", "コントロール"]
+game_mode_name = [
+  "ランク",
+  "カジュアル",
+  "アリーナ",
+  "コントロール"
+]
 game_mode_name.length.times do |n|
   GameMode.create!(name: game_mode_name[n])
+end
+
+rank_tier_name = [
+  "ブロンズ",
+  "シルバー",
+  "ゴールド",
+  "プラチナ",
+  "ダイアモンド",
+  "マスター",
+  "プレデター"
+]
+rank_tier_name.length.times do |n|
+  RankTier.create!(name: rank_tier_name[n])
 end
 
 10.times do |n|
