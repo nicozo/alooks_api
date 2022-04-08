@@ -2,14 +2,14 @@ class Api::V1::RoomsController < ApplicationController
   before_action :set_room, only: %i[show]
 
   def index
-    @rooms = Room.all.includes(%i[user platform game_mode rank_tier]).order(created_at: :desc)
-    render json: @rooms.as_json(include: %i[user platform game_mode rank_tier])
+    @rooms = Room.all.includes(association_tables).order(created_at: :desc)
+    render json: @rooms.as_json(include: association_tables)
   end
 
   def new; end
 
   def show
-    render json: @room.as_json(include: %i[user platform game_mode rank_tier])
+    render json: @room.as_json(include: association_tables)
   end
 
   def create
@@ -35,6 +35,10 @@ class Api::V1::RoomsController < ApplicationController
 
   def set_room
     @room = Room.find(params[:id])
+  end
+
+  def association_tables
+    %i[user platform game_mode rank_tier]
   end
 
   def room_params
