@@ -1,0 +1,2 @@
+class RankTier < ApplicationRecord
+end
