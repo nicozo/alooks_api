@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_08_093952) do
+ActiveRecord::Schema.define(version: 2022_04_08_095506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,8 +43,10 @@ ActiveRecord::Schema.define(version: 2022_04_08_093952) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "platform_id", null: false
     t.bigint "game_mode_id", null: false
+    t.bigint "rank_tier_id", null: false
     t.index ["game_mode_id"], name: "index_rooms_on_game_mode_id"
     t.index ["platform_id"], name: "index_rooms_on_platform_id"
+    t.index ["rank_tier_id"], name: "index_rooms_on_rank_tier_id"
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
@@ -65,5 +67,6 @@ ActiveRecord::Schema.define(version: 2022_04_08_093952) do
 
   add_foreign_key "rooms", "game_modes"
   add_foreign_key "rooms", "platforms"
+  add_foreign_key "rooms", "rank_tiers"
   add_foreign_key "rooms", "users"
 end
