@@ -57,6 +57,7 @@ end
     application_deadline: rand(1..2).hour.from_now,
     user: User.offset(rand(User.count)).first,
     platform: Platform.offset(rand(Platform.count)).first,
-    game_mode: GameMode.offset(rand(GameMode.count)).first
+    game_mode: GameMode.offset(rand(GameMode.count)).first,
+    rank_tier: RankTier.offset(rand(RankTier.count)).first
   )
 end
