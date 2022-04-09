@@ -30,6 +30,10 @@ gem 'sorcery', '~> 0.16.3'
 gem 'enum_help', '~> 0.0.17'
 # JWT認証用 Doc: https://github.com/jwt/ruby-jwt/
 gem 'jwt', '~> 2.3'
+# uninitialized constant Mail::TestMailer (NameError)エラー回避
+gem 'net-smtp'
+gem 'net-imap'
+gem 'net-pop'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
