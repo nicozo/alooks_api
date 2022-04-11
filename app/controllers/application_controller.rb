@@ -5,6 +5,7 @@ class ApplicationController < ActionController::API
 
   # CSRF対策
   before_action :xhr_in_request_header?
+  before_action :authenticate_user
 
   private
 

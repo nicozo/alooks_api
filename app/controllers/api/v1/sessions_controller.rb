@@ -3,6 +3,8 @@ class Api::V1::SessionsController < ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
+  skip_before_action :authenticate_user
+  before_action :delete_session, only: %i[create]
   before_action :sessionize_user, only: %i[refresh destroy]
 
   def create
