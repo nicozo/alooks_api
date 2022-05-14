@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_08_095506) do
+ActiveRecord::Schema.define(version: 2022_05_14_081549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2022_04_08_095506) do
 
   create_table "rooms", force: :cascade do |t|
     t.string "title", null: false
-    t.integer "current_squad_member", null: false
+    t.integer "recruitment_number", null: false
     t.boolean "is_draft", default: false
     t.datetime "application_deadline"
     t.bigint "user_id"
