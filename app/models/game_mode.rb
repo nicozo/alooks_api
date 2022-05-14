@@ -1,3 +1,3 @@
-class GameMode < ApplicationRecord
-  has_many :rooms
-end
+# class GameMode < ApplicationRecord
+#   has_many :rooms
+# end

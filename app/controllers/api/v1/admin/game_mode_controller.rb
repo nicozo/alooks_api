@@ -1,19 +1,19 @@
-class Api::V1::Admin::GameModeController < ApplicationController
-  def index
-  end
+# class Api::V1::Admin::GameModeController < ApplicationController
+#   def index
+#   end
 
-  def new
-  end
+#   def new
+#   end
 
-  def create
-  end
+#   def create
+#   end
 
-  def edit
-  end
+#   def edit
+#   end
 
-  def update
-  end
+#   def update
+#   end
 
-  def destroy
-  end
-end
+#   def destroy
+#   end
+# end

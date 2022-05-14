@@ -1,3 +1,3 @@
-class Platform < ApplicationRecord
-  has_many :rooms
-end
+# class Platform < ApplicationRecord
+#   has_many :rooms
+# end

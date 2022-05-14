@@ -1,3 +1,3 @@
-class RankTier < ApplicationRecord
-  has_many :rooms
-end
+# class RankTier < ApplicationRecord
+#   has_many :rooms
+# end
