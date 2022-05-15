@@ -13,13 +13,14 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def create
-    # @room = Room.new(room_params)
+    binding.pry
+    @room = authenticate_user.rooms.build(room_params)
 
-    # if @room.save
-    #   render json: @room
-    # else
-    #   render json: @room.errors, status: :bad_request
-    # end
+    if @room
+      render json: @room
+    else
+      render json: @room.errors, status: :bad_request
+    end
   end
 
   def edit
@@ -38,7 +39,7 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def association_tables
-    %i[user platform game_mode rank_tier]
+    %i[user]
   end
 
   def room_params
@@ -47,7 +48,10 @@ class Api::V1::RoomsController < ApplicationController
       :current_squad_member,
       :is_draft,
       :application_deadline,
-      :user_id
+      :user_id,
+      :platform,
+      :game_mode,
+      :rank_tier
     )
   end
 end

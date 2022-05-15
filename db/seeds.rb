@@ -17,47 +17,50 @@
   )
 end
 
-platform_name = [
-  "PlayStation",
-  "Xbox",
-  "PC",
-  "Switch"
-]
-platform_name.length.times do |n|
-  Platform.create!(name: platform_name[n])
-end
+# platform_name = [
+#   "PlayStation",
+#   "Xbox",
+#   "PC",
+#   "Switch"
+# ]
+# platform_name.length.times do |n|
+#   Platform.create!(name: platform_name[n])
+# end
 
-game_mode_name = [
-  "ランク",
-  "カジュアル",
-  "アリーナ",
-  "コントロール"
-]
-game_mode_name.length.times do |n|
-  GameMode.create!(name: game_mode_name[n])
-end
+# game_mode_name = [
+#   "ランク",
+#   "カジュアル",
+#   "アリーナ",
+#   "コントロール"
+# ]
+# game_mode_name.length.times do |n|
+#   GameMode.create!(name: game_mode_name[n])
+# end
 
-rank_tier_name = [
-  "ブロンズ",
-  "シルバー",
-  "ゴールド",
-  "プラチナ",
-  "ダイアモンド",
-  "マスター",
-  "プレデター"
-]
-rank_tier_name.length.times do |n|
-  RankTier.create!(name: rank_tier_name[n])
-end
+# rank_tier_name = [
+#   "ブロンズ",
+#   "シルバー",
+#   "ゴールド",
+#   "プラチナ",
+#   "ダイアモンド",
+#   "マスター",
+#   "プレデター"
+# ]
+# rank_tier_name.length.times do |n|
+#   RankTier.create!(name: rank_tier_name[n])
+# end
 
 10.times do |n|
   room = Room.create!(
     title: "Apex部屋#{n + 1}",
-    current_squad_member: rand(1..2),
+    recruitment_number: rand(1..2),
     application_deadline: rand(1..2).hour.from_now,
     user: User.offset(rand(User.count)).first,
-    platform: Platform.offset(rand(Platform.count)).first,
-    game_mode: GameMode.offset(rand(GameMode.count)).first,
-    rank_tier: RankTier.offset(rand(RankTier.count)).first
+    # platform: Platform.offset(rand(Platform.count)).first,
+    # game_mode: GameMode.offset(rand(GameMode.count)).first,
+    # rank_tier: RankTier.offset(rand(RankTier.count)).first
+    platform: rand(0...3),
+    rank_tier: rand(0...7),
+    game_mode: rand(0...3)
   )
 end
