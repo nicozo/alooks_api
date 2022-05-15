@@ -41,9 +41,9 @@ ActiveRecord::Schema.define(version: 2022_05_14_101809) do
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "platform", default: 1, null: false
-    t.integer "game_mode", default: 1, null: false
-    t.integer "rank_tier", default: 1, null: false
+    t.integer "platform", default: 0, null: false
+    t.integer "game_mode", default: 0, null: false
+    t.integer "rank_tier", default: 0, null: false
     t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
