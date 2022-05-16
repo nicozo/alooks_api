@@ -13,8 +13,7 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @room = authenticate_user.rooms.build(room_params)
+    @room = current_user.rooms.build(processed_params)
 
     if @room
       render json: @room
@@ -43,9 +42,9 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def room_params
-    require(:room).permit(
+    params.require(:room).permit(
       :title,
-      :current_squad_member,
+      :recruitment_number,
       :is_draft,
       :application_deadline,
       :user_id,
@@ -53,5 +52,11 @@ class Api::V1::RoomsController < ApplicationController
       :game_mode,
       :rank_tier
     )
+  end
+
+  def processed_params
+    attrs = room_params.to_h
+    attrs[:application_deadline] = attrs[:application_deadline].minutes.from_now
+    attrs
   end
 end
