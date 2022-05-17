@@ -15,7 +15,7 @@ class Api::V1::RoomsController < ApplicationController
   def create
     @room = current_user.rooms.build(processed_params)
 
-    if @room
+    if @room.save
       render json: @room
     else
       render json: @room.errors, status: :bad_request
