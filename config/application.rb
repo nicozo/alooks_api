@@ -32,6 +32,7 @@ module Api
 
     # Zeitwerk有効時false推奨
     config.add_autoload_paths_to_load_path = false
+    config.autoloader = :classic
 
     config.generators do |g|
       #testファイルの自動生成を不可

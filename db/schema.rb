@@ -15,18 +15,21 @@ ActiveRecord::Schema.define(version: 2022_05_14_101809) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  # 削除予定テーブル
   create_table "game_modes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
+  
+  # 削除予定テーブル
   create_table "platforms", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
+  
+  # 削除予定テーブル
   create_table "rank_tiers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
