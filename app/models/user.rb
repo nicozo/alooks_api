@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include TokenGenerate
   authenticates_with_sorcery!
+
+  after_initialize :set_default_value, if: :new_record?
   
   has_many :rooms, dependent: :destroy
   has_one_attached :avatar
@@ -26,5 +28,11 @@ class User < ApplicationRecord
 
   def response_json(payload = {})
     as_json(only: [:id, :name, :self_introduction, :date_of_birth, :sex]).merge(payload).deep_stringify_keys
+  end
+
+  private
+
+  def set_default_value
+    self.self_introduction ||= 'よろしくお願いします！'
   end
 end
