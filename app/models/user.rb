@@ -30,6 +30,10 @@ class User < ApplicationRecord
     as_json(only: [:id, :name, :self_introduction, :date_of_birth, :sex]).merge(payload).deep_stringify_keys
   end
 
+  def avatar_url
+    avatar.attached? ? Rails.application.routes.url_helpers.rails_blob_path(avatar, only_path: true) : nil
+  end
+
   private
 
   def set_default_value
