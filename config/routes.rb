@@ -7,7 +7,8 @@ Rails.application.routes.draw do
       end
       resource :registers, only: %i[create]
       resources :rooms, only: %i[index show create edit update destroy]
-
+      resources :profile, only: %i[update]
+      
       namespace :admin do
         resources :platforms, only: %i[index create edit update destroy]
         resources :game_mode, only: %i[index create edit update destroy]
