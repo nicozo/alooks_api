@@ -27,7 +27,7 @@ class User < ApplicationRecord
   end
 
   def response_json(payload = {})
-    as_json(only: [:id, :name, :self_introduction, :date_of_birth, :sex, :game_id]).merge(payload).deep_stringify_keys
+    as_json(only: [:id, :name, :self_introduction, :date_of_birth, :sex, :game_id], methods: [:avatar_url]).merge(payload).deep_stringify_keys
   end
 
   def avatar_url

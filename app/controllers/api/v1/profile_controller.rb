@@ -3,7 +3,7 @@ class Api::V1::ProfileController < ApplicationController
     @user = User.find(current_user.id)
 
     if @user.update(user_params)
-      render json: @user, methods: [:avatar_url]
+      render json: @user.response_json
     else
       render json: @user.errors, status: :bad_request
     end
