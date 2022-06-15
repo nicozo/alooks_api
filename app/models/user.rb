@@ -1,12 +1,14 @@
 class User < ApplicationRecord
   include TokenGenerate
+  include Rails.application.routes.url_helpers
+
   authenticates_with_sorcery!
 
   after_initialize :set_default_value, if: :new_record?
-  
+
   has_many :rooms, dependent: :destroy
   has_one_attached :avatar
-  
+
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
@@ -14,7 +16,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :name,  presence: true, length: { maximum: 30, allow_blank: true }
   validates :self_introduction, length: { maximum: 255 }
-  
+
   enum sex: { male: 0, female: 1 }
   enum role: { general: 0, admin: 1 }
 
@@ -31,7 +33,7 @@ class User < ApplicationRecord
   end
 
   def avatar_url
-    avatar.attached? ? Rails.application.routes.url_helpers.rails_blob_path(avatar, only_path: true) : nil
+    avatar.attached? ? url_for(avatar) : nil
   end
 
   private
