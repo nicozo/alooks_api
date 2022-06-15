@@ -22,13 +22,18 @@ class Room < ApplicationRecord
     "プラチナ",
     "ダイアモンド",
     "マスター",
-    "プレデター"
+    "プレデター",
+    "なし（カジュアル）"
   ]
 
   enum game_mode: [
     "カジュアル",
     "ランク",
     "アリーナ",
-    "イベント",
+    "イベント"
   ]
+
+  def user_avatar
+    user.avatar_url
+  end
 end
