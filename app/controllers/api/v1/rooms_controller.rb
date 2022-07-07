@@ -3,13 +3,13 @@ class Api::V1::RoomsController < ApplicationController
 
   def index
     @rooms = Room.all.includes(association_tables).order(created_at: :desc)
-    render json: @rooms.as_json(include: association_tables, methods:[:user_avatar])
+    render json: @rooms.as_json(methods: [:host])
   end
 
   def new; end
 
   def show
-    render json: @room.as_json(include: association_tables, methods:[:user_avatar])
+    render json: @room.as_json(methods: [:host])
   end
 
   def create

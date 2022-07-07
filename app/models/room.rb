@@ -33,7 +33,9 @@ class Room < ApplicationRecord
     "イベント"
   ]
 
-  def user_avatar
-    user.avatar_url
+  private
+
+  def host
+    user.response_json
   end
 end
