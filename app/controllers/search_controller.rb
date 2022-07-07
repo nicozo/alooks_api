@@ -6,7 +6,7 @@ class SearchController < ApplicationController
     game_id = params[:game_id]
     platform = params[:platform]
     api_key = ENV['API_KEY']
-    url = "https://api.mozambiquehe.re/bridge"
+    url = 'https://api.mozambiquehe.re/bridge'
     uri = URI.parse(url)
     params = {
       platform: platform,
