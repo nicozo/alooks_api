@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   enum sex: { male: 0, female: 1 }
   enum role: { general: 0, admin: 1 }
+  enum platform: { PS4: 0, PC: 1, X1: 3 }
 
   def remember(jti)
     update!(refresh_jti: jti)
