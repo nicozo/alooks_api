@@ -18,7 +18,8 @@ class Api::V1::ProfileController < ApplicationController
       :date_of_birth,
       :sex,
       :game_id,
-      :avatar
+      :avatar,
+      :platform
     )
   end
 end
