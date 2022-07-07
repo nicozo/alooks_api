@@ -4,11 +4,12 @@ class SearchController < ApplicationController
 
   def search
     game_id = params[:game_id]
+    platform = params[:platform]
     api_key = ENV['API_KEY']
     url = "https://api.mozambiquehe.re/bridge"
     uri = URI.parse(url)
     params = {
-      platform: 'PS4',
+      platform: platform,
       player: game_id,
       auth: api_key
     }
