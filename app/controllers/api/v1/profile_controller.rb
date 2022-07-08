@@ -3,7 +3,7 @@ class Api::V1::ProfileController < ApplicationController
     @user = User.find(current_user.id)
 
     if @user.update(user_params)
-      render json: @user.response_json
+      render json: login_response
     else
       render json: @user.errors, status: :bad_request
     end
@@ -21,5 +21,29 @@ class Api::V1::ProfileController < ApplicationController
       :avatar,
       :platform
     )
+  end
+
+  def encode_access_token
+    @_access_token ||= @user.encode_access_token
+  end
+
+  def access_token
+    encode_access_token.token
+  end
+
+  def access_token_expiration
+    encode_access_token.payload[:exp]
+  end
+
+  def access_token_sub
+    encode_access_token.payload[:sub]
+  end
+
+  def login_response
+    {
+      token: access_token,
+      expires: access_token_expiration,
+      user: @user.response_json({sub: access_token_sub})
+    }
   end
 end
