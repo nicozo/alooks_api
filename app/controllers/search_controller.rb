@@ -1,21 +1,18 @@
 class SearchController < ApplicationController
-  require 'uri'
-  require 'net/http'
+  require "http"
 
   def search
-    game_id = params[:game_id]
     platform = params[:platform]
+    game_id = params[:game_id]
     api_key = ENV['API_KEY']
-    url = 'https://api.mozambiquehe.re/bridge'
-    uri = URI.parse(url)
-    params = {
-      platform: platform,
-      player: game_id,
-      auth: api_key
-    }
-    uri.query = URI.encode_www_form(params)
-
-    res = Net::HTTP.get_response(uri)
-    render json: res.body if res.is_a?(Net::HTTPSuccess)
+    res = HTTP.get(
+      'https://api.mozambiquehe.re/bridge',
+      :params => {
+        :platform => platform,
+        :player => game_id,
+        :auth => api_key
+        }
+      )
+    render json: res.to_s
   end
 end
