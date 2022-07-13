@@ -1,18 +1,12 @@
 class SearchController < ApplicationController
-  require "http"
-
   def search
-    platform = params[:platform]
-    game_id = params[:game_id]
-    api_key = ENV['API_KEY']
-    res = HTTP.get(
-      'https://api.mozambiquehe.re/bridge',
-      :params => {
-        :platform => platform,
-        :player => game_id,
-        :auth => api_key
-        }
-      )
-    render json: res.to_s
+    response_json = Utils::ApexLegendsApiClient.get_stats(api_params)
+    render json: response_json
+  end
+
+  private
+
+  def api_params
+    params.permit(:platform, :game_id)
   end
 end
