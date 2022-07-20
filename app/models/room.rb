@@ -10,8 +10,7 @@ class Room < ApplicationRecord
   enum platform: [
     :PlayStation,
     :Xbox,
-    :PC,
-    :Switch
+    :PC
   ]
 
   enum rank_tier: [
