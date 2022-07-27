@@ -10,8 +10,7 @@ class Room < ApplicationRecord
   enum platform: [
     :PlayStation,
     :Xbox,
-    :PC,
-    :Switch
+    :PC
   ]
 
   enum rank_tier: [
@@ -22,13 +21,20 @@ class Room < ApplicationRecord
     "プラチナ",
     "ダイアモンド",
     "マスター",
-    "プレデター"
+    "プレデター",
+    "なし（カジュアル）"
   ]
 
   enum game_mode: [
     "カジュアル",
     "ランク",
     "アリーナ",
-    "イベント",
+    "イベント"
   ]
+
+  private
+
+  def host
+    user.response_json
+  end
 end

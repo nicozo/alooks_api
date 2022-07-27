@@ -24,6 +24,9 @@ module Api
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # libディレクトリを読み込む
+    config.paths.add 'lib', eager_load: true
+
     # Railsアプリデフォルトのタイムゾーン
     config.time_zone = ENV['TZ']
 

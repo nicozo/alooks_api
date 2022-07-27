@@ -1,4 +1,6 @@
 class Api::V1::RegistersController < ApplicationController
+  skip_before_action :authenticate_user
+
   def create
     @user = User.new(user_params)
 
