@@ -10,6 +10,8 @@ module UserSessionize
   private
 
   def token_from_cookies
+    # 一時的に出力
+    p "リフレッシュトークン: #{cookies[:refresh_token]}"
     cookies[:refresh_token]
   end
 
