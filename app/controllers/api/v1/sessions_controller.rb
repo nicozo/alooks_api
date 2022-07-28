@@ -12,9 +12,6 @@ class Api::V1::SessionsController < ApplicationController
 
     if @user
       set_refresh_token_to_cookie
-      # 一時的に出力
-      p "リフレッシュトークン: #{refresh_token}"
-      p "Cookieリフレッシュトークン: #{cookies[:refresh_token]}"
       render json: login_response
     else
       render json: 'login_failed', status: :not_found
