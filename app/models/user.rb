@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   include TokenGenerate
-  include Rails.application.routes.url_helpers
+  # include Rails.application.routes.url_helpers
 
   authenticates_with_sorcery!
 
@@ -36,8 +36,12 @@ class User < ApplicationRecord
     ).merge(payload).deep_stringify_keys
   end
 
+  # herokuデプロイ後のMissing host to link to! Please provide the :host parameterエラーの解消
+  # def avatar_url
+  #   avatar.attached? ? url_for(avatar) : nil
+  # end
   def avatar_url
-    avatar.attached? ? url_for(avatar) : nil
+    avatar.attached? ? Rails.application.routes.url_helpers.rails_blob_path(avatar, only_path: true) : nil
   end
 
   private
