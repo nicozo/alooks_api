@@ -64,6 +64,7 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
 
-  Rails.application.routes.default_url_options[:host] = 'localhost'
-  Rails.application.routes.default_url_options[:port] = 3000
+  # Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true (ArgumentError)の対策
+  Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+  # Rails.application.routes.default_url_options[:port] = 3000
 end
