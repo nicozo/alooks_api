@@ -6,7 +6,9 @@ Rails.application.routes.draw do
         post :refresh, on: :collection
       end
       resource :registers, only: %i[create]
-      resources :rooms, only: %i[index show create edit update destroy]
+      resources :rooms, only: %i[index show create edit update destroy] do
+        resources :applies, only: %i[index create destroy]
+      end
       resources :profile, only: %i[update]
       
       namespace :admin do
