@@ -3,4 +3,5 @@ class Apply < ApplicationRecord
   belongs_to :room
 
   validates :body, presence: true, length: { maximum: 25 }
+  validates :user_id, uniqueness: { scope: :room_id }
 end
