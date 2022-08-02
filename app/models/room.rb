@@ -1,4 +1,5 @@
 class Room < ApplicationRecord
+  has_many :applies, dependent: :destroy
   belongs_to :user
   # belongs_to :platform
   # belongs_to :game_mode

@@ -7,6 +7,7 @@ class User < ApplicationRecord
   after_initialize :set_default_value, if: :new_record?
 
   has_many :rooms, dependent: :destroy
+  has_many :applies, dependent: :destroy
   has_one_attached :avatar
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
