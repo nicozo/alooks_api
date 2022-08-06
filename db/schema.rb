@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2022_08_06_050433) do
     t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "host_id"
+    t.integer "host_id", null: false
     t.index ["room_id"], name: "index_applies_on_room_id"
     t.index ["user_id", "room_id"], name: "index_applies_on_user_id_and_room_id", unique: true
     t.index ["user_id"], name: "index_applies_on_user_id"

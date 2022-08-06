@@ -4,4 +4,5 @@ class Apply < ApplicationRecord
 
   validates :body, presence: true, length: { maximum: 25 }
   validates :user_id, uniqueness: { scope: :room_id }
+  validates :host_id, presence: true
 end
