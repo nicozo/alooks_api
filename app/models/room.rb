@@ -33,6 +33,10 @@ class Room < ApplicationRecord
     "イベント"
   ]
 
+  def response_json
+    as_json(only: %i[id title recruitment_number application_deadline platform game_mode rank_tier])
+  end
+
   private
 
   def host

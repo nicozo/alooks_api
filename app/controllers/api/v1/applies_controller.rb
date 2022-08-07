@@ -1,8 +1,8 @@
 class Api::V1::AppliesController < ApplicationController
   def index
-    @applies = Apply.to_host.order(created_at: :desc)
+    @applies = Apply.where(host_id: current_user.id).order(created_at: :desc)
 
-    render json: @applies
+    render json: @applies.as_json(methods: [:applicant, :applied_room])
   end
 
   def create
