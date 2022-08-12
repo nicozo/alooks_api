@@ -28,6 +28,7 @@ class Api::V1::AppliesController < ApplicationController
 
   def apply_params
     params.require(:apply).permit(
+      :body,
       :user_id,
       :room_id
     )
