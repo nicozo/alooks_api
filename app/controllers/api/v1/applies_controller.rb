@@ -24,6 +24,12 @@ class Api::V1::AppliesController < ApplicationController
     render json: @apply, status: ok
   end
 
+  def my_applies
+    @applies = Apply.where(user_id: current_user.id).order(created_at: :desc)
+
+    render json: @applies
+  end
+
   private
 
   def apply_params
