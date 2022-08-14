@@ -36,7 +36,7 @@ class Api::V1::AppliesController < ApplicationController
     @application.is_read = true
     @application.save
 
-    render json: @application
+    render json: @application.as_json(methods: [:applicant, :applied_room])
   end
 
   private
