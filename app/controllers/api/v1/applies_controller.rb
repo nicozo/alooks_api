@@ -1,4 +1,6 @@
 class Api::V1::AppliesController < ApplicationController
+  before_action :set_apply, only: %i[read]
+
   def index
     @applies = Apply.where(host_id: current_user.id).order(created_at: :desc)
 
@@ -30,6 +32,13 @@ class Api::V1::AppliesController < ApplicationController
     render json: @applies
   end
 
+  def read
+    @apply.is_read = true
+    @apply.save
+
+    render json: @apply
+  end
+
   private
 
   def apply_params
@@ -38,5 +47,9 @@ class Api::V1::AppliesController < ApplicationController
       :user_id,
       :room_id
     )
+  end
+
+  def set_apply
+    @apply = Apply.find(params[:id])
   end
 end

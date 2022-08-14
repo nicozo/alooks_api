@@ -12,6 +12,9 @@ Rails.application.routes.draw do
         collection do
           get :my_applies
         end
+        member do
+          patch :read
+        end
       end
 
       namespace :admin do
