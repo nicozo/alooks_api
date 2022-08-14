@@ -6,7 +6,8 @@ class Room < ApplicationRecord
   # belongs_to :rank_tier
 
   validates :title, presence: true, length: { maximum: 15 }
-  validates :recruitment_number, presence: true
+  validates :recruitment_number, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 2 }
+
 
   enum platform: [
     :PlayStation,
