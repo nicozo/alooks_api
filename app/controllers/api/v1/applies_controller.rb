@@ -2,41 +2,41 @@ class Api::V1::AppliesController < ApplicationController
   before_action :set_apply, only: %i[read]
 
   def index
-    @applies = Apply.where(host_id: current_user.id).order(created_at: :desc)
+    @applications = Apply.where(host_id: current_user.id).order(created_at: :desc)
 
-    render json: @applies.as_json(methods: [:applicant, :applied_room])
+    render json: @applications.as_json(methods: [:applicant, :applied_room])
   end
 
   def create
-    @apply = Apply.new(apply_params)
-    @apply.host_id = @apply.room.user_id
+    @application = Apply.new(apply_params)
+    @application.host_id = @application.room.user_id
 
-    if @apply.save
-      render json: @apply
+    if @application.save
+      render json: @application
     else
-      render json: @apply.errors, status: :bad_request
+      render json: @application.errors, status: :bad_request
     end
   end
 
   def destroy
     # @apply = Apply.where(user_id: params[:user_id], room_id: params[:room_id])
-    @apply = Apply.record_exist?(apply_params)
-    @apply.destroy
+    @application = Apply.record_exist?(apply_params)
+    @application.destroy
 
-    render json: @apply, status: ok
+    render json: @application, status: ok
   end
 
-  def my_applies
-    @applies = Apply.where(user_id: current_user.id).order(created_at: :desc)
+  def my_applications
+    @applications = Apply.where(user_id: current_user.id).order(created_at: :desc)
 
-    render json: @applies
+    render json: @applications
   end
 
   def read
-    @apply.is_read = true
-    @apply.save
+    @application.is_read = true
+    @application.save
 
-    render json: @apply
+    render json: @application
   end
 
   private
@@ -50,6 +50,6 @@ class Api::V1::AppliesController < ApplicationController
   end
 
   def set_apply
-    @apply = Apply.find(params[:id])
+    @application = Apply.find(params[:id])
   end
 end

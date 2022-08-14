@@ -1,5 +1,6 @@
 class Apply < ApplicationRecord
   include ActiveModel::Validations
+  include UserAuthenticate
 
   validates_with ApplyValidators
 
@@ -10,7 +11,6 @@ class Apply < ApplicationRecord
   validates :user_id, uniqueness: { scope: :room_id }
   validates :host_id, presence: true
 
-  scope :to_host, -> { where(host_id: current_user.id) }
   scope :record_exist?, -> (params) { where(user_id: params[:user_id], room_id: params[:room_id]) }
 
   def applicant

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :profile, only: %i[update]
       resources :applies, only: %i[index create destroy] do
         collection do
-          get :my_applies
+          get :my_applications
         end
         member do
           patch :read
