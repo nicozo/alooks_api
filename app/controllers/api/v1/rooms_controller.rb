@@ -26,7 +26,7 @@ class Api::V1::RoomsController < ApplicationController
 
   def update; end
 
-  def destroy ;end
+  def destroy; end
 
   private
 

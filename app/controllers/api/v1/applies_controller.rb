@@ -4,7 +4,7 @@ class Api::V1::AppliesController < ApplicationController
   def index
     @applications = Apply.where(host_id: current_user.id).order(created_at: :desc)
 
-    render json: @applications.as_json(methods: [:applicant, :applied_room])
+    render json: @applications.as_json(methods: %i[applicant applied_room])
   end
 
   def create
@@ -36,7 +36,7 @@ class Api::V1::AppliesController < ApplicationController
     @application.is_read = true
     @application.save
 
-    render json: @application.as_json(methods: [:applicant, :applied_room])
+    render json: @application.as_json(methods: %i[applicant applied_room])
   end
 
   private

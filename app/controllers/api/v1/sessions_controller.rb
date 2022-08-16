@@ -23,7 +23,7 @@ class Api::V1::SessionsController < ApplicationController
     if cookies[:refresh_token].nil?
       head(:ok)
     else
-      render status: 500, json: { status: 500, message: 'Could not delete session' }
+      render status: :internal_server_error, json: { status: 500, message: 'Could not delete session' }
     end
   end
 
@@ -76,7 +76,7 @@ class Api::V1::SessionsController < ApplicationController
     {
       token: access_token,
       expires: access_token_expiration,
-      user: @user.response_json({sub: access_token_sub})
+      user: @user.response_json({ sub: access_token_sub })
     }
   end
 end

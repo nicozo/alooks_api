@@ -18,11 +18,11 @@ module UserAuth
         @token = JWT.encode(@payload, secret_key, algorithm, header_fields)
       end
     end
-    
+
     def entity_for_user
       User.find(decrypt_for(@user_id))
     end
-    
+
     # def entity_for_user
     #   User.find(@user_id)
     # end

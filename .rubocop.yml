@@ -10,3 +10,10 @@ AllCops:
   - 'bin/**/*'
   - 'spec/**/*'
   - 'node_modules/**/*'
+  - 'app/channels/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: compact

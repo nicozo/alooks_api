@@ -43,7 +43,7 @@ class Api::V1::ProfileController < ApplicationController
     {
       token: access_token,
       expires: access_token_expiration,
-      user: @user.response_json({sub: access_token_sub})
+      user: @user.response_json({ sub: access_token_sub })
     }
   end
 end

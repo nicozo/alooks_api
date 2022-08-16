@@ -25,11 +25,13 @@ module UserAuth
 
     def encrypt_for(user_id)
       return unless user_id
+
       crypt.encrypt_and_sign(user_id.to_s, purpose: :authorization)
     end
 
     def decrypt_for(user_id)
       return unless user_id
+
       crypt.decrypt_and_verify(user_id.to_s, purpose: :authorization)
     rescue
       nil

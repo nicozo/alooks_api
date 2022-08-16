@@ -1,6 +1,6 @@
 module UserAuth
   mattr_accessor :access_token_life
-  self.access_token_life = 30.minute
+  self.access_token_life = 30.minutes
 
   mattr_accessor :refresh_token_life
   self.refresh_token_life = 1.day

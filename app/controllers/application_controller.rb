@@ -12,6 +12,7 @@ class ApplicationController < ActionController::API
   def xhr_in_request_header?
     # リクエストヘッダ内にX-Requested-With: 'XMLHttpRequest'の存在を判定
     return if request.xhr?
+
     # なければ403エラーを返す
     render status: :forbidden, json: { status: 403, error: "Forbidden" }
   end

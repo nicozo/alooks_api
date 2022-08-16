@@ -24,7 +24,7 @@ class Api::V1::RegistersController < ApplicationController
 
   def register_response
     {
-      user: @user.as_json(only: [:id, :name])
+      user: @user.as_json(only: %i[id name])
     }
   end
 end

@@ -6,13 +6,13 @@ module Utils
 
     def get_stats(params)
       res = HTTP.get(
-          APEX_LEGENDS_API_URI,
-          :params => {
-            :platform => params[:platform],
-            :player => params[:game_id],
-            :auth => @api_key
-          }
-        )
+        APEX_LEGENDS_API_URI,
+        params: {
+          platform: params[:platform],
+          player: params[:game_id],
+          auth: @api_key
+        }
+      )
       res.to_s
     end
 
@@ -26,8 +26,7 @@ module Utils
       end
     end
 
-    private
-
     APEX_LEGENDS_API_URI = 'https://api.mozambiquehe.re/bridge'
+    APEX_LEGENDS_API_URI.freeze
   end
 end
