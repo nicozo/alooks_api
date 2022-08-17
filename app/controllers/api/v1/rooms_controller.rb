@@ -44,7 +44,6 @@ class Api::V1::RoomsController < ApplicationController
       :recruitment_number,
       :is_draft,
       :application_deadline,
-      :user_id,
       :platform,
       :game_mode,
       :rank_tier
