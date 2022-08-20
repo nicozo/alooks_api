@@ -1,6 +1,5 @@
 class Apply < ApplicationRecord
   include ActiveModel::Validations
-  include UserAuthenticate
 
   validates_with ApplyValidators
 
