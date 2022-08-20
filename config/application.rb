@@ -24,6 +24,12 @@ module Api
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
 
+    # localeファイルの読み込みパスを追加
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    # バリデーションエラーメッセージの日本語化
+    config.i18n.default_locale = :ja
+
     # libディレクトリを読み込む
     config.paths.add 'lib', eager_load: true
 

@@ -1,0 +1,33 @@
+ja:
+  activerecord:
+    models:
+      user: 'ユーザー'
+      room: 'スクワッド'
+      apply: '参加リクエスト'
+      agreement: '参加リクエスト承諾'
+    attributes:
+      user:
+        name: 'ユーザー名'
+        email: 'メールアドレス'
+        self_introduction: '自己紹介'
+        date_of_birth: '生年月日'
+        sex: '性別'
+        game_id: 'ゲームID'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+      room:
+        title: '募集タイトル'
+        recruitment_number: '募集人数'
+        platform: 'プラットフォーム'
+        game_mode: 'ゲームモード'
+        rank_tier: 'ランク帯'
+        application_deadline: '締め切り時間'
+      apply:
+        body: 'リクエストメッセージ'
+      agreement:
+        body: '承諾メッセージ'
+    errors:
+      models:
+        apply:
+          apply_to_my_room: '作成した募集にはリクエストできません'
+
