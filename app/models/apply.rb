@@ -11,7 +11,7 @@ class Apply < ApplicationRecord
   validates :user_id, uniqueness: { scope: :room_id }
   validates :host_id, presence: true
 
-  scope :record_exist?, ->(params) { where(user_id: params[:user_id], room_id: params[:room_id]) }
+  # scope :record_exist?, ->(params) { where(user_id: params[:user_id], room_id: params[:room_id]) }
 
   def applicant
     user.response_json

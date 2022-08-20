@@ -1,5 +1,5 @@
 class Api::V1::AppliesController < ApplicationController
-  before_action :set_apply, only: %i[read]
+  before_action :set_apply, only: %i[read destroy]
 
   def index
     @applications = Apply.where(host_id: current_user.id).order(created_at: :desc)
@@ -8,7 +8,7 @@ class Api::V1::AppliesController < ApplicationController
   end
 
   def create
-    @application = Apply.new(apply_params)
+    @application = current_user.applies.new(apply_params)
     @application.host_id = @application.room.user_id
 
     if @application.save
@@ -19,15 +19,13 @@ class Api::V1::AppliesController < ApplicationController
   end
 
   def destroy
-    # @apply = Apply.where(user_id: params[:user_id], room_id: params[:room_id])
-    @application = Apply.record_exist?(apply_params)
     @application.destroy
 
     render json: @application, status: ok
   end
 
   def my_applications
-    @applications = Apply.where(user_id: current_user.id).order(created_at: :desc)
+    @applications = current_user.applies
 
     render json: @applications
   end
@@ -44,7 +42,6 @@ class Api::V1::AppliesController < ApplicationController
   def apply_params
     params.require(:apply).permit(
       :body,
-      :user_id,
       :room_id
     )
   end
