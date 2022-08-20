@@ -16,6 +16,7 @@ Rails.application.routes.draw do
           patch :read
         end
       end
+      resources :agreements, only: %i[index create]
 
       namespace :admin do
         resources :platforms, only: %i[index create edit update destroy]
