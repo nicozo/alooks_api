@@ -30,4 +30,5 @@ ja:
       models:
         apply:
           apply_to_my_room: '作成した募集にはリクエストできません'
+          apply_to_same_room: '参加リクエスト済みです'
 
