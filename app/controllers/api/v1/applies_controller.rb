@@ -14,7 +14,8 @@ class Api::V1::AppliesController < ApplicationController
     if @application.save
       render json: @application
     else
-      render json: @application.errors, status: :bad_request
+      render_error_message(nil, @application.errors)
+      # render json: @application.errors, status: :bad_request
     end
   end
 

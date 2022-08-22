@@ -2,6 +2,7 @@ class ApplicationController < ActionController::API
   include ActionController::Cookies
   include UserAuthenticate
   include TokenGenerate
+  include Api::ErrorRenderable
 
   # CSRF対策
   before_action :xhr_in_request_header?

@@ -24,6 +24,8 @@ ja:
         application_deadline: '締め切り時間'
       apply:
         body: 'リクエストメッセージ'
+        user_id: '応募者'
+        host_id: 'ホスト'
       agreement:
         body: '承諾メッセージ'
     errors:
@@ -31,4 +33,5 @@ ja:
         apply:
           apply_to_my_room: '作成した募集にはリクエストできません'
           apply_to_same_room: '参加リクエスト済みです'
+          # taken: '参加リクエスト済みです'
 
