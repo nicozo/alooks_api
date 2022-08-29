@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2022_08_17_041756) do
 
   create_table "agreements", force: :cascade do |t|
     t.string "body"
-    t.string "applicant_id"
+    t.integer "applicant_id"
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
     t.datetime "created_at", precision: 6, null: false
