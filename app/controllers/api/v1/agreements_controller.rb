@@ -11,6 +11,8 @@ class Api::V1::AgreementsController < ApplicationController
     else
       render json: @agreement.errors, status: :bad_request
     end
+
+    Apply.find(params[:applicant_id]).destroy
   end
 
   private
