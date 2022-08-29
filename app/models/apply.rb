@@ -1,7 +1,7 @@
 class Apply < ApplicationRecord
   include ActiveModel::Validations
 
-  validates_with ApplyValidators
+  validates_with ApplyValidators, on: :create
 
   belongs_to :user
   belongs_to :room
