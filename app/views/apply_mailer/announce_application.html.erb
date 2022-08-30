@@ -1,0 +1,15 @@
+<p><%= @host.name %>さん</p>
+
+<hr>
+
+<h3>参加リクエストが送信されました</h3>
+
+<h4><%= @applicant.name %>からメッセージ</h4>
+<p><%= @message %></p>
+
+<hr>
+
+<p>いますぐリクエストをチェック:</p><%= @applications_url %>
+<p>応募先のスクワッドはこちら:</p><%= @room_url %>
+
+<p>公式サイト:<a href="<%= @top_url %>"><%= @top_url %></a></p>
