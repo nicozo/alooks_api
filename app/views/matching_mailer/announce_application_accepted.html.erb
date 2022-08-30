@@ -1,12 +1,16 @@
-<h2><%= @applicant.name %>さん</h2>
+<p><%= @applicant.name %>さん</p>
+<hr>
 
-<p>参加リクエストが承認されました！</p>
+<h3>参加リクエストが承認されました！</h3>
 <p>フレンドリクエストが送られるまでお待ちください</p>
 
-<p><%= @host.name %>からメッセージ</p>
+<h4><%= @host.name %>からメッセージ</h4>
 <p><%= @message %></p>
 
-<p>ホストのGame ID：<%= @host.game_id %></p>
+<p>リクエストが届かない場合は、以下のIDに申請してください</p>
+<p>ホストGame ID:<%= @host.game_id %></p>
+<hr>
 
-<p>応募したスクワッドは<a href="<%= @url %>">こちら</a></p>
+<p>応募したスクワッドはこちら:<a href="<%= @url %>"><%= @url %></a></p>
 
+<p>公式サイト:<a href="<%= @top_url %>"><%= @top_url %></a></p>
