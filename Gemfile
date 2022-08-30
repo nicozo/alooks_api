@@ -66,6 +66,8 @@ group :development, :test do
   gem 'rubocop-checkstyle_formatter', '~> 0.5.0', require: false
   # ダミーデータ用 Doc: https://github.com/faker-ruby/faker
   gem 'faker', '~> 2.20'
+  # メール機能デバッグ用
+  gem 'letter_opener_web', '~> 2.0'
 end
 
 group :development do
