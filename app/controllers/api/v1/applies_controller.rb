@@ -12,6 +12,7 @@ class Api::V1::AppliesController < ApplicationController
     @application.host_id = @application.room.user_id
 
     if @application.save
+      ApplyMailer.announce_application(@application).deliver_now
       render json: @application
     else
       render_error_message(nil, @application.errors)
