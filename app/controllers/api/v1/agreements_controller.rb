@@ -8,12 +8,12 @@ class Api::V1::AgreementsController < ApplicationController
 
     if @agreement.save
       MatchingMailer.announce_application_accepted(@agreement).deliver_now
+      Apply.find(params[:application_id]).destroy
+
       render json: @agreement
     else
       render json: @agreement.errors, status: :bad_request
     end
-
-    Apply.find(params[:application_id]).destroy
   end
 
   private
