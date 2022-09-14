@@ -7,7 +7,11 @@ Rails.application.routes.draw do
         post :refresh, on: :collection
       end
       resource :registers, only: %i[create]
-      resources :rooms, only: %i[index show create edit update destroy]
+      resources :rooms, only: %i[index show create edit update destroy] do
+        collection do
+          get :recent
+        end
+      end
       resources :profile, only: %i[update]
       resources :applies, only: %i[index create destroy] do
         collection do

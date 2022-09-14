@@ -1,5 +1,6 @@
 class Api::V1::RoomsController < ApplicationController
   before_action :set_room, only: %i[show]
+  skip_before_action :authenticate_user, only: %i[recent]
 
   def index
     @rooms = Room.all.includes(association_tables).order(created_at: :desc)
@@ -27,6 +28,12 @@ class Api::V1::RoomsController < ApplicationController
   def update; end
 
   def destroy; end
+
+  def recent
+    @rooms = Room.recent(3).includes(association_tables)
+
+    render json: @rooms.as_json(methods: [:host])
+  end
 
   private
 
