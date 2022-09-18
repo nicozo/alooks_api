@@ -22,6 +22,7 @@ Rails.application.routes.draw do
         end
       end
       resources :agreements, only: %i[index create]
+      resources :password_resets, only: [:create, :edit, :update]
 
       namespace :admin do
         resources :platforms, only: %i[index create edit update destroy]
