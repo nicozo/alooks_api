@@ -7,7 +7,11 @@ Rails.application.routes.draw do
         post :refresh, on: :collection
       end
       resource :registers, only: %i[create]
-      resources :rooms, only: %i[index show create edit update destroy]
+      resources :rooms, only: %i[index show create edit update destroy] do
+        collection do
+          get :recent
+        end
+      end
       resources :profile, only: %i[update]
       resources :applies, only: %i[index create destroy] do
         collection do
@@ -18,6 +22,7 @@ Rails.application.routes.draw do
         end
       end
       resources :agreements, only: %i[index create]
+      resources :password_resets, only: [:create, :update]
 
       namespace :admin do
         resources :platforms, only: %i[index create edit update destroy]
@@ -27,4 +32,5 @@ Rails.application.routes.draw do
   end
 
   get 'search', to: 'search#search'
+  get 'map_rotation', to: 'search#map_rotation'
 end

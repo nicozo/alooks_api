@@ -16,6 +16,16 @@ module Utils
       res.to_s
     end
 
+    def get_map_data()
+      res = HTTP.get(
+        MAP_ROTATION_API_URI,
+        params: {
+          auth: @api_key
+        }
+      )
+      res.to_s
+    end
+
     class << self
       def client
         ApexLegendsApiClient.new
@@ -24,9 +34,15 @@ module Utils
       def get_stats(params)
         client.get_stats(params)
       end
+
+      def get_map_data()
+        client.get_map_data()
+      end
     end
 
     APEX_LEGENDS_API_URI = 'https://api.mozambiquehe.re/bridge'
     APEX_LEGENDS_API_URI.freeze
+    MAP_ROTATION_API_URI = 'https://api.mozambiquehe.re/maprotation'
+    MAP_ROTATION_API_URI.freeze
   end
 end
