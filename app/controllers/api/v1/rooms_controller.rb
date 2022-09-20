@@ -59,7 +59,10 @@ class Api::V1::RoomsController < ApplicationController
 
   def processed_params
     attrs = room_params.to_h
-    attrs[:application_deadline] = attrs[:application_deadline].minutes.from_now
+    if attrs[:application_deadline] != nil
+      attrs[:application_deadline] = attrs[:application_deadline].minutes.from_now
+    end
+
     attrs
   end
 end
