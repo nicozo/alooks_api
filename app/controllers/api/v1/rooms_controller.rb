@@ -1,5 +1,6 @@
 class Api::V1::RoomsController < ApplicationController
   before_action :set_room, only: %i[show]
+  before_action :current_user_profile_completed?, only: %i[create]
   skip_before_action :authenticate_user, only: %i[recent]
 
   def index
@@ -64,5 +65,9 @@ class Api::V1::RoomsController < ApplicationController
     end
 
     attrs
+  end
+
+  def current_user_profile_completed?
+    current_user.game_id.present? || head(:bad_request)
   end
 end

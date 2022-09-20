@@ -1,5 +1,6 @@
 class Api::V1::AppliesController < ApplicationController
   before_action :set_apply, only: %i[read destroy]
+  before_action :current_user_profile_completed?, only: %i[create]
 
   def index
     @applications = Apply.where(host_id: current_user.id).order(created_at: :desc)
@@ -50,5 +51,9 @@ class Api::V1::AppliesController < ApplicationController
 
   def set_apply
     @application = Apply.find(params[:id])
+  end
+
+  def current_user_profile_completed?
+    current_user.game_id.present? || render_error_message(nil, 'Bad Request')
   end
 end
