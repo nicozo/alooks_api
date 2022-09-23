@@ -80,12 +80,12 @@ ActiveRecord::Schema.define(version: 2022_09_23_073048) do
   end
 
   create_table "conditions", force: :cascade do |t|
-    t.integer "platform"
-    t.integer "age"
-    t.integer "required_login"
-    t.integer "required_ranked"
-    t.boolean "required_vc"
-    t.string "personality"
+    t.integer "platform", default: 0, null: false
+    t.integer "age", default: 0, null: false
+    t.integer "required_login", default: 0, null: false
+    t.integer "required_ranked", default: 0, null: false
+    t.boolean "required_vc", default: true, null: false
+    t.string "personality", null: false
     t.bigint "clan_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
