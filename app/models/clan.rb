@@ -1,4 +1,5 @@
 class Clan < ApplicationRecord
+  has_one :conditions
   belongs_to :user
 
   validates :name, presence: true, length: { maximum: 15 }
