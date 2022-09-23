@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_14_165244) do
+ActiveRecord::Schema.define(version: 2022_09_23_070612) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,17 @@ ActiveRecord::Schema.define(version: 2022_09_14_165244) do
     t.index ["room_id"], name: "index_applies_on_room_id"
     t.index ["user_id", "room_id"], name: "index_applies_on_user_id_and_room_id", unique: true
     t.index ["user_id"], name: "index_applies_on_user_id"
+  end
+
+  create_table "clans", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "concept", null: false
+    t.string "interview", null: false
+    t.string "prohibited_matters", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_clans_on_user_id"
   end
 
   create_table "game_modes", force: :cascade do |t|
@@ -128,5 +139,6 @@ ActiveRecord::Schema.define(version: 2022_09_14_165244) do
   add_foreign_key "agreements", "users"
   add_foreign_key "applies", "rooms"
   add_foreign_key "applies", "users"
+  add_foreign_key "clans", "users"
   add_foreign_key "rooms", "users"
 end
