@@ -5,7 +5,7 @@ class CreateClans < ActiveRecord::Migration[6.1]
       t.string :concept,            null: false
       t.string :interview,          null: false
       t.string :prohibited_matters, null: false
-      t.references :user,           foreign_key: true
+      t.references :user,           null: false, foreign_key: true
 
       t.timestamps
     end
