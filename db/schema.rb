@@ -101,7 +101,7 @@ ActiveRecord::Schema.define(version: 2022_09_25_145448) do
   create_table "information", force: :cascade do |t|
     t.string "enrollment", null: false
     t.string "activity_time", null: false
-    t.integer "enrollment_age", null: false
+    t.string "enrollment_age", null: false
     t.string "snipe", null: false
     t.string "contact_means", null: false
     t.bigint "clan_id", null: false
