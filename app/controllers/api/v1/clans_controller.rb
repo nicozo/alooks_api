@@ -1,4 +1,6 @@
 class Api::V1::ClansController < ApplicationController
+  before_action :set_clan, only: %i[show]
+
   def index
     @clans = Clan.all.includes(association_tables).order(created_at: :desc)
 
@@ -6,6 +8,7 @@ class Api::V1::ClansController < ApplicationController
   end
 
   def show
+    render json: @clan.as_json(methods: [:host])
   end
 
   def create
@@ -28,6 +31,10 @@ class Api::V1::ClansController < ApplicationController
   end
   
   private
+
+  def set_clan
+    @clan = Clan.find(params[:id])
+  end
 
   def association_tables
     %i[user]
