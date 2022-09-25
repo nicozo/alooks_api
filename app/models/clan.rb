@@ -44,4 +44,10 @@ class Clan < ApplicationRecord
     master
     predator
   ], _prefix: true
+
+  private
+
+  def host
+    user.response_json
+  end
 end
