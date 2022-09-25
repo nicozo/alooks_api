@@ -18,13 +18,13 @@ class Clan < ApplicationRecord
     PlayStation
     Xbox
     PC
-  ]
+  ], _prefix: true
 
   enum age: %w[
     unlimited
     high_school_student
     adult
-  ]
+  ], _prefix: true
 
   enum required_login: %w[
     unlimited
@@ -32,7 +32,7 @@ class Clan < ApplicationRecord
     a_couple_of_times_a_week
     three_or_four_times_a_week
     five_or_six_times_a_week
-  ]
+  ], _prefix: true
 
   enum required_ranked: %w[
     unlimited
@@ -43,5 +43,5 @@ class Clan < ApplicationRecord
     diamond
     master
     predator
-  ]
+  ], _prefix: true
 end
