@@ -1,6 +1,6 @@
 class Clan < ApplicationRecord
-  has_one :condition
-  has_one :information
+  # has_one :condition
+  # has_one :information
   belongs_to :user
 
   validates :name, presence: true, length: { maximum: 15 }
@@ -14,7 +14,7 @@ class Clan < ApplicationRecord
   validates :snipe, presence: true, length: { maximum: 35 }
   validates :contact_means, presence: true, length: { maximum: 25 }
 
-    enum platform: %w[
+  enum platform: %w[
     PlayStation
     Xbox
     PC
