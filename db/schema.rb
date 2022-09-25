@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2022_09_25_160547) do
     t.integer "required_login", default: 0, null: false
     t.integer "required_ranked", default: 0, null: false
     t.boolean "required_vc", default: true, null: false
-    t.string "personality", default: "0", null: false
+    t.string "personality", null: false
     t.index ["user_id"], name: "index_clans_on_user_id"
   end
 
