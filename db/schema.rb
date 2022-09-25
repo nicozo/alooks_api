@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_25_160320) do
+ActiveRecord::Schema.define(version: 2022_09_25_160547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 2022_09_25_160320) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "enrollment", null: false
+    t.string "activity_time", null: false
+    t.string "enrollment_age", null: false
+    t.string "snipe", null: false
+    t.string "contact_means", null: false
+    t.integer "platform", default: 0, null: false
+    t.integer "age", default: 0, null: false
+    t.integer "required_login", default: 0, null: false
+    t.integer "required_ranked", default: 0, null: false
+    t.boolean "required_vc", default: true, null: false
+    t.string "personality", default: "0", null: false
     t.index ["user_id"], name: "index_clans_on_user_id"
   end
 
