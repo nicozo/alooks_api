@@ -34,5 +34,22 @@ class Api::V1::ClansController < ApplicationController
   end
 
   def clan_params
+    params.require(:clan).permit(
+      :name,
+      :concept,
+      :interview,
+      :prohibited_matters,
+      :enrollment,
+      :enrollment_age,
+      :activity_time,
+      :snipe,
+      :contact_means,
+      :platform,
+      :age,
+      :required_login,
+      :required_ranked,
+      :required_vc,
+      :personality
+    )
   end
 end
