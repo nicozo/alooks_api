@@ -44,10 +44,52 @@ class Clan < ApplicationRecord
     master
     predator
   ], _prefix: true
+  
+  def response_json
+    as_json(
+      only: %i[
+        id
+        name
+        concept
+        interview
+        prohibited_matters
+      ],
+      methods: %i[
+        host
+        requirements
+        information
+      ]
+    )
+  end
 
   private
 
   def host
     user.response_json
+  end
+
+  def requirements
+    as_json(
+      only: %i[
+        platform
+        age
+        required_login
+        required_ranked
+        required_vc
+        personality
+      ]
+    )
+  end
+
+  def information
+    as_json(
+      only: %i[
+        enrollment
+        enrollment_age
+        activity_time
+        snipe
+        contact_means
+      ]
+    )
   end
 end
