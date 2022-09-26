@@ -46,6 +46,7 @@ class Room < ApplicationRecord
         platform
         game_mode
         rank_tier
+        user_id
       ],
       methods: %i[host]
     )
