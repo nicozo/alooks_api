@@ -34,8 +34,16 @@ class User < ApplicationRecord
 
   def response_json(payload = {})
     as_json(
-      only: %i[id name self_introduction date_of_birth sex game_id platform],
-      methods: [:avatar_url]
+      only: %i[
+        id
+        name
+        self_introduction
+        date_of_birth
+        sex
+        game_id
+        platform
+      ],
+      methods: %i[avatar_url]
     ).merge(payload).deep_stringify_keys
   end
 

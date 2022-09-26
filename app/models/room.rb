@@ -37,7 +37,17 @@ class Room < ApplicationRecord
   scope :recent, -> (count) { order(id: :desc).limit(count) }
 
   def response_json
-    as_json(only: %i[id title recruitment_number application_deadline platform game_mode rank_tier])
+    as_json(
+      only: %i[
+        id
+        title
+        recruitment_number
+        application_deadline
+        platform
+        game_mode
+        rank_tier
+      ]
+    )
   end
 
   private
