@@ -5,13 +5,14 @@ class Api::V1::RoomsController < ApplicationController
 
   def index
     @rooms = Room.all.includes(association_tables).order(created_at: :desc)
-    render json: @rooms.as_json(methods: [:host])
+
+    render json: @rooms.as_json(methods: %i[host])
   end
 
   def new; end
 
   def show
-    render json: @room.as_json(methods: [:host])
+    render json: @room.response_json
   end
 
   def create
@@ -33,7 +34,7 @@ class Api::V1::RoomsController < ApplicationController
   def recent
     @rooms = Room.recent(3).includes(association_tables)
 
-    render json: @rooms.as_json(methods: [:host])
+    render json: @rooms.response_json
   end
 
   private
