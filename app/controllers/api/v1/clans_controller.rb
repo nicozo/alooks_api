@@ -4,11 +4,11 @@ class Api::V1::ClansController < ApplicationController
   def index
     @clans = Clan.all.includes(association_tables).order(created_at: :desc)
 
-    render json: @clans.as_json(methods: %i[host])
+    render json: @clans.as_json(only: %i[id name concept])
   end
 
   def show
-    render json: @clan.as_json(methods: [:host])
+    render json: @clan.response_json
   end
 
   def create
