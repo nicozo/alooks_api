@@ -15,6 +15,7 @@ class Clan < ApplicationRecord
   validates :contact_means, presence: true, length: { maximum: 25 }
 
   enum platform: %w[
+    unlimited
     PlayStation
     Xbox
     PC
@@ -31,7 +32,6 @@ class Clan < ApplicationRecord
     everyday
     a_couple_of_times_a_week
     three_or_four_times_a_week
-    five_or_six_times_a_week
   ], _prefix: true
 
   enum required_ranked: %w[
