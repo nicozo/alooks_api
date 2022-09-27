@@ -7,12 +7,12 @@ class Clan < ApplicationRecord
   validates :concept, presence: true, length: { maximum: 100 }
   validates :interview, presence: true, length: { maximum: 100 }
   validates :prohibited_matters, presence: true, length: { maximum: 100 }
-  validates :personality, presence: true, length: { maximum: 100 }
-  validates :enrollment, presence: true, length: { maximum: 25 }
-  validates :activity_time, presence: true, length: { maximum: 25 }
-  validates :enrollment_age, presence: true, length: {  maximum: 25}
-  validates :snipe, presence: true, length: { maximum: 35 }
-  validates :contact_means, presence: true, length: { maximum: 25 }
+  validates :personality, presence: true, length: { maximum: 50 }
+  validates :enrollment, presence: true, length: { maximum: 50 }
+  validates :activity_time, presence: true, length: { maximum: 50 }
+  validates :enrollment_age, presence: true, length: {  maximum: 50}
+  validates :snipe, presence: true, length: { maximum: 100 }
+  validates :contact_means, presence: true, length: { maximum: 50 }
 
   enum platform: %w[
     unlimited
