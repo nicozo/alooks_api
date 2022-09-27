@@ -4,7 +4,7 @@ class Api::V1::ClansController < ApplicationController
   def index
     @clans = Clan.all.includes(association_tables).order(created_at: :desc)
 
-    render json: @clans.as_json(only: %i[id name concept])
+    render json: @clans.as_json(only: %i[id name concept user_id])
   end
 
   def show
