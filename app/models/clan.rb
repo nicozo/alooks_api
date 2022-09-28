@@ -53,6 +53,7 @@ class Clan < ApplicationRecord
         concept
         interview
         prohibited_matters
+        user_id
       ],
       methods: %i[
         host
