@@ -1,5 +1,5 @@
 class Api::V1::ClansController < ApplicationController
-  before_action :set_clan, only: %i[show]
+  before_action :set_clan, only: %i[show edit update]
 
   def index
     @clans = Clan.all.includes(association_tables).order(created_at: :desc)
@@ -22,9 +22,15 @@ class Api::V1::ClansController < ApplicationController
   end
 
   def edit
+    render json: @clan
   end
 
   def update
+    if @clan.update(clan_params)
+      render json: @clan
+    else
+      render json: @clan.errors, status: :bad_request
+    end
   end
 
   def destroy
