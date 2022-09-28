@@ -34,7 +34,7 @@ class Api::V1::RoomsController < ApplicationController
   def recent
     @rooms = Room.recent(3).includes(association_tables)
 
-    render json: @rooms.as_json(methods: [:host])
+    render json: @rooms.as_json(methods: %i[host])
   end
 
   private

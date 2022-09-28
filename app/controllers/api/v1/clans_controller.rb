@@ -40,6 +40,12 @@ class Api::V1::ClansController < ApplicationController
     render json: @clan
   end
 
+  def my_clan
+    @my_clan = current_user.clan
+
+    render json: @my_clan.response_json
+  end
+
   private
 
   def set_clan
