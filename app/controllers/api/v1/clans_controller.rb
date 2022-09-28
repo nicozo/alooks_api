@@ -12,7 +12,8 @@ class Api::V1::ClansController < ApplicationController
   end
 
   def create
-    @clan = current_user.clans.build(clan_params)
+    # @clan = current_user.clans.build(clan_params)
+    @clan = current_user.build_clan(clan_params)
 
     if @clan.save
       render json: @clan
@@ -38,7 +39,7 @@ class Api::V1::ClansController < ApplicationController
 
     render json: @clan
   end
-  
+
   private
 
   def set_clan
