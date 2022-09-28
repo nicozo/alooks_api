@@ -43,7 +43,7 @@ class Api::V1::ClansController < ApplicationController
   def my_clan
     @my_clan = current_user.clan
 
-    render json: @my_clan.response_json
+    render json: @my_clan&.response_json
   end
 
   private
