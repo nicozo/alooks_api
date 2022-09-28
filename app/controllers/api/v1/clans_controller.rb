@@ -35,7 +35,8 @@ class Api::V1::ClansController < ApplicationController
 
   def destroy
     @clan.destroy!
-    head :ok
+
+    render json: @clan
   end
   
   private
