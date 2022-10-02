@@ -77,6 +77,9 @@ class User < ApplicationRecord
         sex
         game_id
         platform
+        kd
+        highest_damage
+        favorite_weapons
       ],
       methods: %i[avatar_url]
     ).merge(payload).deep_stringify_keys
