@@ -20,10 +20,44 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :name,  presence: true, length: { maximum: 30, allow_blank: true }
   validates :self_introduction, length: { maximum: 255 }
+  validates :kd, numericality: { allow_nil: true, greater_than_or_equal_to: 0 }
+  validates :highest_damage, numericality: { allow_nil: true, only_integer: true, greater_than_or_equal_to: 0 }
 
   enum sex: { male: 0, female: 1 }
   enum role: { general: 0, admin: 1 }
   enum platform: { PS4: 0, PC: 1, X1: 3 }
+  # Todo enumでは複数選択不可の為一旦コメントアウト
+  # enum favorite_weapon: %w[
+  #   havoc
+  #   flatline
+  #   hemlok
+  #   r_301
+  #   alternator
+  #   prowler
+  #   r_99
+  #   volt
+  #   car
+  #   devotion
+  #   l_star
+  #   spitfire
+  #   rampage
+  #   g7
+  #   triple_take
+  #   repeater
+  #   bocek
+  #   charge_rifle
+  #   long_bow
+  #   kraber
+  #   sentinel
+  #   eva
+  #   mastiff
+  #   mozambique
+  #   peace_keeper
+  #   re45
+  #   p2020
+  #   wingman
+  # ]
+  
 
   def remember(jti)
     update!(refresh_jti: jti)
