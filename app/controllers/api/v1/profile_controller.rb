@@ -19,7 +19,10 @@ class Api::V1::ProfileController < ApplicationController
       :sex,
       :game_id,
       :avatar,
-      :platform
+      :platform,
+      :kd,
+      :highest_damage,
+      :favorite_weapons
     )
   end
 
