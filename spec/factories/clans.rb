@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :clan do
     name { "MyString" }
     concept { "MyString" }
-    interview { "MyString" }
+    joining_process { "MyString" }
     prohibited_matters { "MyString" }
   end
 end

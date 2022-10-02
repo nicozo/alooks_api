@@ -5,7 +5,7 @@ class Clan < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 15 }
   validates :concept, presence: true, length: { maximum: 100 }
-  validates :interview, presence: true, length: { maximum: 100 }
+  validates :joining_process, presence: true, length: { maximum: 100 }
   validates :prohibited_matters, presence: true, length: { maximum: 100 }
   validates :personality, presence: true, length: { maximum: 50 }
   validates :enrollment, presence: true, length: { maximum: 50 }
@@ -51,7 +51,7 @@ class Clan < ApplicationRecord
         id
         name
         concept
-        interview
+        joining_process
         prohibited_matters
         user_id
       ],

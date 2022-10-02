@@ -60,7 +60,7 @@ class Api::V1::ClansController < ApplicationController
     params.require(:clan).permit(
       :name,
       :concept,
-      :interview,
+      :joining_process,
       :prohibited_matters,
       :enrollment,
       :enrollment_age,
