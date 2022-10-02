@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 2022_10_02_060042) do
     t.integer "access_count_to_reset_password_page", default: 0
     t.float "kd"
     t.integer "highest_damage"
-    t.integer "favorite_weapon"
+    t.string "favorite_weapons"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
