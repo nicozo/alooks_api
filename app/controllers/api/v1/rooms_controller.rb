@@ -1,5 +1,5 @@
 class Api::V1::RoomsController < ApplicationController
-  before_action :set_room, only: %i[show]
+  before_action :set_room, only: %i[show edit update destroy]
   before_action :current_user_profile_completed?, only: %i[create]
   skip_before_action :authenticate_user, only: %i[recent]
 
@@ -25,11 +25,23 @@ class Api::V1::RoomsController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    render json: @room
+  end
 
-  def update; end
+  def update
+    if @room.update(processed_params)
+      render json: @room
+    else
+      render json: @room.errors, status: :bad_request
+    end
+  end
 
-  def destroy; end
+  def destroy
+    @room.destroy!
+
+    head :ok
+  end
 
   def recent
     @rooms = Room.recent(3).includes(association_tables)
