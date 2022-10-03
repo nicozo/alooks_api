@@ -40,7 +40,7 @@ class Api::V1::RoomsController < ApplicationController
   def destroy
     @room.destroy!
 
-    head :ok
+    render json: @room
   end
 
   def recent
