@@ -81,6 +81,6 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def current_user_profile_completed?
-    current_user.game_id.present? || head(:bad_request)
+    current_user.profile_completed || head(:bad_request)
   end
 end
