@@ -89,6 +89,10 @@ class User < ApplicationRecord
     avatar.attached? ? url_for(avatar) : nil
   end
 
+  def profile_completed
+    game_id.present?
+  end
+
   private
 
   def set_default_value
