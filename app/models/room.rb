@@ -9,35 +9,47 @@ class Room < ApplicationRecord
   validates :title, presence: true, length: { maximum: 15 }
   validates :recruitment_number, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 2 }
 
-  enum platform: {
-    PlayStation: 0,
-    Xbox: 1,
-    PC: 2
-  }
+  enum platform: %w[
+    PlayStation
+    Xbox
+    PC
+  ], _prefix: true
 
   enum rank_tier: %w[
-    ルーキー
-    ブロンズ
-    シルバー
-    ゴールド
-    プラチナ
-    ダイアモンド
-    マスター
-    プレデター
-    なし（カジュアル）
-  ]
+    rookie
+    bronze
+    silver
+    gold
+    platinum
+    diamond
+    master
+    predator
+    casual
+  ], _prefix: true
 
   enum game_mode: %w[
-    カジュアル
-    ランク
-    アリーナ
-    イベント
-  ]
+    casual
+    ranked
+    arena
+    event
+  ], _prefix: true
 
   scope :recent, -> (count) { order(id: :desc).limit(count) }
 
   def response_json
-    as_json(only: %i[id title recruitment_number application_deadline platform game_mode rank_tier])
+    as_json(
+      only: %i[
+        id
+        title
+        recruitment_number
+        application_deadline
+        platform
+        game_mode
+        rank_tier
+        user_id
+      ],
+      methods: %i[host]
+    )
   end
 
   private

@@ -22,7 +22,12 @@ Rails.application.routes.draw do
         end
       end
       resources :agreements, only: %i[index create]
-      resources :password_resets, only: [:create, :update]
+      resources :password_resets, only: %i[create update]
+      resources :clans, only: %i[index show create edit update destroy] do
+        collection do
+          get :my_clan
+        end
+      end
 
       namespace :admin do
         resources :platforms, only: %i[index create edit update destroy]

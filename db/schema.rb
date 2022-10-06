@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_14_165244) do
+ActiveRecord::Schema.define(version: 2022_10_02_123231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,28 @@ ActiveRecord::Schema.define(version: 2022_09_14_165244) do
     t.index ["user_id"], name: "index_applies_on_user_id"
   end
 
+  create_table "clans", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "concept", null: false
+    t.string "joining_process", null: false
+    t.string "prohibited_matters", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "enrollment", null: false
+    t.string "activity_time", null: false
+    t.string "enrollment_age", null: false
+    t.string "snipe", null: false
+    t.string "contact_means", null: false
+    t.integer "platform", default: 0, null: false
+    t.integer "age", default: 0, null: false
+    t.integer "required_login", default: 0, null: false
+    t.integer "required_ranked", default: 0, null: false
+    t.boolean "required_vc", default: true, null: false
+    t.string "personality", null: false
+    t.index ["user_id"], name: "index_clans_on_user_id"
+  end
+
   create_table "game_modes", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -118,6 +140,9 @@ ActiveRecord::Schema.define(version: 2022_09_14_165244) do
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
     t.integer "access_count_to_reset_password_page", default: 0
+    t.float "kd"
+    t.integer "highest_damage"
+    t.string "favorite_weapons"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token"
   end
@@ -128,5 +153,6 @@ ActiveRecord::Schema.define(version: 2022_09_14_165244) do
   add_foreign_key "agreements", "users"
   add_foreign_key "applies", "rooms"
   add_foreign_key "applies", "users"
+  add_foreign_key "clans", "users"
   add_foreign_key "rooms", "users"
 end
