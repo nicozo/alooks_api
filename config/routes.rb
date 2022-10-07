@@ -30,8 +30,9 @@ Rails.application.routes.draw do
       end
 
       namespace :admin do
-        resources :platforms, only: %i[index create edit update destroy]
-        resources :game_mode, only: %i[index create edit update destroy]
+        resource :sessions, only: %i[create destroy] do
+          post :refresh, on: :collection
+        end
       end
     end
   end
