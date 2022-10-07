@@ -10,7 +10,6 @@ class User < ApplicationRecord
   has_many :applies, dependent: :destroy
   has_many :agreements, dependent: :destroy
   has_one :clan ,dependent: :destroy
-  # has_many :clans ,dependent: :destroy
   has_one_attached :avatar
 
   validates :password, length: { minimum: 3 }, if: -> { new_record? || changes[:crypted_password] }
@@ -57,7 +56,7 @@ class User < ApplicationRecord
   #   p2020
   #   wingman
   # ]
-  
+
 
   def remember(jti)
     update!(refresh_jti: jti)
