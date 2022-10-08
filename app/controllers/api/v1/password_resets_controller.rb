@@ -2,26 +2,16 @@ class Api::V1::PasswordResetsController < ApplicationController
   skip_before_action :authenticate_user
 
   def create
-    @user = User.find_by_email(params[:email])
+    user = User.find_by_email(params[:email])
 
-      if @user
-        @user.deliver_reset_password_instructions!
+      if user
+        user.deliver_reset_password_instructions!
 
         head :ok
       else
         render status: :not_found, json: { status: 404, message: "User Not Found" }
       end
   end
-
-  # def edit
-  #   @token = params[:id]
-  #   @user = User.load_from_reset_password_token(params[:id])
-
-  #   if @user.blank?
-  #     not_authenticated
-  #     return
-  #   end
-  # end
 
   def update
     set_token_user_from_params?

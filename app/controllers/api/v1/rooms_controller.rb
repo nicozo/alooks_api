@@ -4,9 +4,9 @@ class Api::V1::RoomsController < ApplicationController
   skip_before_action :authenticate_user, only: %i[recent]
 
   def index
-    @rooms = Room.all.includes(association_tables).order(created_at: :desc)
+    rooms = Room.all.includes(association_tables).order(created_at: :desc)
 
-    render json: @rooms.as_json(only: %i[id title recruitment_number application_deadline platform game_mode rank_tier user_id], methods: %i[host])
+    render json: rooms.as_json(only: %i[id title recruitment_number application_deadline platform game_mode rank_tier user_id], methods: %i[host])
   end
 
   def new; end
@@ -16,12 +16,12 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def create
-    @room = current_user.rooms.build(processed_params)
+    room = current_user.rooms.build(processed_params)
 
-    if @room.save
-      render json: @room
+    if room.save
+      render json: room
     else
-      render json: @room.errors, status: :bad_request
+      render json: room.errors, status: :bad_request
     end
   end
 
@@ -44,9 +44,9 @@ class Api::V1::RoomsController < ApplicationController
   end
 
   def recent
-    @rooms = Room.recent(3).includes(association_tables)
+    rooms = Room.recent(3).includes(association_tables)
 
-    render json: @rooms.as_json(methods: %i[host])
+    render json: rooms.as_json(methods: %i[host])
   end
 
   private

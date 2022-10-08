@@ -3,29 +3,29 @@ class Api::V1::AppliesController < ApplicationController
   before_action :current_user_profile_completed?, only: %i[create]
 
   def index
-    @applications = Apply.where(host_id: current_user.id).order(created_at: :desc)
+    applications = Apply.where(host_id: current_user.id).order(created_at: :desc)
 
-    render json: @applications.as_json(methods: %i[applicant applied_room])
+    render json: applications.as_json(methods: %i[applicant applied_room])
   end
 
   def create
-    @application = current_user.applies.new(apply_params)
-    @application.host_id = @application.room.user_id
+    application = current_user.applies.new(apply_params)
+    application.host_id = application.room.user_id
 
-    if @application.save
-      ApplyMailer.announce_application(@application).deliver_now
-      render json: @application
+    if application.save
+      ApplyMailer.announce_application(application).deliver_now
+      render json: application
     else
-      render_error_message(nil, @application.errors)
+      render_error_message(nil, application.errors)
     end
   end
 
   def destroy; end
 
   def my_applications
-    @applications = current_user.applies
+    applications = current_user.applies
 
-    render json: @applications
+    render json: applications
   end
 
   def read
