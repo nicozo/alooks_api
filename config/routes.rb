@@ -34,6 +34,7 @@ Rails.application.routes.draw do
           post :refresh, on: :collection
         end
         resources :users, only: %i[index]
+        resources :rooms, only: %i[index]
       end
     end
   end
