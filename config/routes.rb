@@ -35,6 +35,7 @@ Rails.application.routes.draw do
         end
         resources :users, only: %i[index]
         resources :rooms, only: %i[index]
+        resources :applies, only: %i[index]
       end
     end
   end
