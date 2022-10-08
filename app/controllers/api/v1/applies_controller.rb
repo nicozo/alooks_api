@@ -17,15 +17,10 @@ class Api::V1::AppliesController < ApplicationController
       render json: @application
     else
       render_error_message(nil, @application.errors)
-      # render json: @application.errors, status: :bad_request
     end
   end
 
-  def destroy
-    @application.destroy
-
-    render json: @application, status: ok
-  end
+  def destroy; end
 
   def my_applications
     @applications = current_user.applies
@@ -54,6 +49,6 @@ class Api::V1::AppliesController < ApplicationController
   end
 
   def current_user_profile_completed?
-    current_user.game_id.present? || render_error_message(nil, 'Bad Request')
+    current_user.profile_completed || render_error_message(nil, 'Bad Request')
   end
 end
