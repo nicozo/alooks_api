@@ -33,7 +33,7 @@ Rails.application.routes.draw do
         resource :sessions, only: %i[create destroy] do
           post :refresh, on: :collection
         end
-        resources :users, only: %i[index]
+        resources :users, only: %i[index create update destroy]
         resources :rooms, only: %i[index]
         resources :applies, only: %i[index]
         resources :clans, only: %i[index]
