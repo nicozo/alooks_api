@@ -32,7 +32,15 @@ RSpec.describe User, type: :model do
       user = build(:user, password: nil, password_confirmation: nil)
 
       user.valid?
-      expect(user.errors[:password]).to include("は3文字以上で入力してください")
+      expect(user.errors[:password]).to include("は7文字以上で入力してください")
+    end
+
+    it "パスワードが指定の文字数未満の場合、無効" do
+      password = ('a'..'z').to_a.shuffle[0..5].join
+      user = build(:user, password: password, password_confirmation: password)
+
+      user.valid?
+      expect(user.errors[:password]).to include("は7文字以上で入力してください")
     end
   end
 end
