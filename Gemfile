@@ -31,9 +31,9 @@ gem 'enum_help', '~> 0.0.17'
 # JWT認証用 Doc: https://github.com/jwt/ruby-jwt/
 gem 'jwt', '~> 2.3'
 # uninitialized constant Mail::TestMailer (NameError)エラー回避
-gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
+gem 'net-smtp'
 
 # HTTPリクエスト用 Doc: https://github.com/httprb/http
 gem 'http', '~> 5.1'

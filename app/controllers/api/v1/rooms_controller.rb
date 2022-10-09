@@ -6,7 +6,9 @@ class Api::V1::RoomsController < ApplicationController
   def index
     rooms = Room.all.includes(association_tables).order(created_at: :desc)
 
-    render json: rooms.as_json(only: %i[id title recruitment_number application_deadline platform game_mode rank_tier user_id], methods: %i[host])
+    render json: rooms.as_json(
+      only: %i[id title recruitment_number application_deadline platform game_mode rank_tier user_id], methods: %i[host]
+    )
   end
 
   def new; end
@@ -73,9 +75,7 @@ class Api::V1::RoomsController < ApplicationController
 
   def processed_params
     attrs = room_params.to_h
-    if attrs[:application_deadline] != nil
-      attrs[:application_deadline] = attrs[:application_deadline].minutes.from_now
-    end
+    attrs[:application_deadline] = attrs[:application_deadline].minutes.from_now unless attrs[:application_deadline].nil?
 
     attrs
   end

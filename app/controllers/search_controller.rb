@@ -7,12 +7,12 @@ class SearchController < ApplicationController
   end
 
   def map_rotation
-    response_json = Utils::ApexLegendsApiClient.get_map_data()
+    response_json = Utils::ApexLegendsApiClient.get_map_data
     render json: response_json
   end
 
   def news
-    response_json = Utils::ApexLegendsApiClient.get_news()
+    response_json = Utils::ApexLegendsApiClient.get_news
 
     render json: response_json
   end

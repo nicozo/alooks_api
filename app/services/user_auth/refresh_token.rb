@@ -74,7 +74,7 @@ module UserAuth
         verify_jti: proc { |jti, payload|
           verify_jti?(jti, payload)
         },
-        algorithm: algorithm
+        algorithm:
       }
     end
   end
