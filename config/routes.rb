@@ -43,4 +43,5 @@ Rails.application.routes.draw do
 
   get 'search', to: 'search#search'
   get 'map_rotation', to: 'search#map_rotation'
+  get 'news', to: 'search#news'
 end

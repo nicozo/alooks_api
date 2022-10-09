@@ -4,7 +4,7 @@ module Utils
       @api_key = ENV['API_KEY']
     end
 
-    def get_stats(params)
+    def get_stats(params = {})
       res = HTTP.get(
         APEX_LEGENDS_API_URI,
         params: {
@@ -16,11 +16,22 @@ module Utils
       res.to_s
     end
 
-    def get_map_data()
+    def get_map_data
       res = HTTP.get(
         MAP_ROTATION_API_URI,
         params: {
           auth: @api_key
+        }
+      )
+      res.to_s
+    end
+
+    def get_news()
+      res = HTTP.get(
+        NEWS_API_URI,
+        params: {
+          auth: @api_key,
+          lang: 'ja-JP'
         }
       )
       res.to_s
@@ -38,11 +49,17 @@ module Utils
       def get_map_data()
         client.get_map_data()
       end
+
+      def get_news()
+        client.get_news()
+      end
     end
 
     APEX_LEGENDS_API_URI = 'https://api.mozambiquehe.re/bridge'
     APEX_LEGENDS_API_URI.freeze
     MAP_ROTATION_API_URI = 'https://api.mozambiquehe.re/maprotation'
     MAP_ROTATION_API_URI.freeze
+    NEWS_API_URI = 'https://api.mozambiquehe.re/news'
+    NEWS_API_URI.freeze
   end
 end
