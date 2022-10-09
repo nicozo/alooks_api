@@ -5,7 +5,7 @@ RSpec.describe Clan, type: :model do
     let(:more_than_100_characters) { SecureRandom.alphanumeric(101) }
 
     it "全ての値が存在する場合、有効" do
-      expect(build(:user)).to be_valid
+      expect(build(:clan)).to be_valid
     end
 
     it "nameが存在しない場合、無効" do
