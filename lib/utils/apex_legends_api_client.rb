@@ -1,5 +1,12 @@
 module Utils
   class ApexLegendsApiClient
+    APEX_LEGENDS_API_URI = 'https://api.mozambiquehe.re/bridge'
+    APEX_LEGENDS_API_URI.freeze
+    MAP_ROTATION_API_URI = 'https://api.mozambiquehe.re/maprotation'
+    MAP_ROTATION_API_URI.freeze
+    NEWS_API_URI = 'https://api.mozambiquehe.re/news'
+    NEWS_API_URI.freeze
+
     def initialize
       @api_key = ENV['API_KEY']
     end
@@ -54,12 +61,5 @@ module Utils
         client.get_news()
       end
     end
-
-    APEX_LEGENDS_API_URI = 'https://api.mozambiquehe.re/bridge'
-    APEX_LEGENDS_API_URI.freeze
-    MAP_ROTATION_API_URI = 'https://api.mozambiquehe.re/maprotation'
-    MAP_ROTATION_API_URI.freeze
-    NEWS_API_URI = 'https://api.mozambiquehe.re/news'
-    NEWS_API_URI.freeze
   end
 end
