@@ -44,7 +44,7 @@ class Clan < ApplicationRecord
     master
     predator
   ], _prefix: true
-  
+
   def response_json
     as_json(
       only: %i[
