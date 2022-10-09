@@ -79,6 +79,7 @@ class User < ApplicationRecord
         kd
         highest_damage
         favorite_weapons
+        role
       ],
       methods: %i[avatar_url]
     ).merge(payload).deep_stringify_keys
