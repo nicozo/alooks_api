@@ -17,7 +17,7 @@ module UserAuth
     end
 
     def crypt
-      salt = "signed user id"
+      salt = ENV['SALT']
       key_length = ActiveSupport::MessageEncryptor.key_len
       secret = Rails.application.key_generator.generate_key(salt, key_length)
       ActiveSupport::MessageEncryptor.new(secret)

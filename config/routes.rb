@@ -30,12 +30,18 @@ Rails.application.routes.draw do
       end
 
       namespace :admin do
-        resources :platforms, only: %i[index create edit update destroy]
-        resources :game_mode, only: %i[index create edit update destroy]
+        resource :sessions, only: %i[create destroy] do
+          post :refresh, on: :collection
+        end
+        resources :users, only: %i[index create update destroy]
+        resources :rooms, only: %i[index update destroy]
+        resources :applies, only: %i[index update destroy]
+        resources :clans, only: %i[index update destroy]
       end
     end
   end
 
   get 'search', to: 'search#search'
   get 'map_rotation', to: 'search#map_rotation'
+  get 'news', to: 'search#news'
 end
