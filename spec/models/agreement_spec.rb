@@ -46,7 +46,7 @@ RSpec.describe Agreement, type: :model do
       agreement_copy = agreement.dup
 
       agreement_copy.valid?
-      expect(agreement_copy.errors[:room_id]).to include("はすでに存在します")
+      expect(agreement_copy.errors[:base]).to include("参加リクエスト承認済みです")
     end
   end
 end
