@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :agreement do
-    body { "MyString" }
-    host_id { "MyString" }
-    user { nil }
-    room { nil }
+    sequence(:body) { |n| "test#{n}" }
+    applicant_id { create(:apply).user_id }
+    user
+    room
   end
 end
