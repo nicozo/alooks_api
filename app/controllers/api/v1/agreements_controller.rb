@@ -12,7 +12,7 @@ class Api::V1::AgreementsController < ApplicationController
 
       render json: agreement
     else
-      render json: agreement.errors, status: :bad_request
+      render_error_message(nil, agreement.errors)
     end
   end
 

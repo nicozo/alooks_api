@@ -33,5 +33,6 @@ ja:
         apply:
           apply_to_my_room: '作成した募集にはリクエストできません'
           apply_to_same_room: '参加リクエスト済みです'
-          # taken: '参加リクエスト済みです'
+        agreement:
+          already_agreed: '参加リクエスト承認済みです'
 

@@ -1,4 +1,8 @@
 class Agreement < ApplicationRecord
+  include ActiveModel::Validations
+
+  validates_with AgreementValidators, on: :create
+
   belongs_to :user
   belongs_to :room
 
