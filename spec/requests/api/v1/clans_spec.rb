@@ -57,7 +57,7 @@ RSpec.describe "Api::V1::Clans", type: :request do
     end
   end
 
-  describe "GET /create" do
+  describe "POST /create" do
     let(:clan_params) { attributes_for(:clan, user: user) }
     let(:http_request) { post api_v1_clans_path, headers: headers, params: clan_params.to_json, xhr: true }
 
@@ -118,7 +118,7 @@ RSpec.describe "Api::V1::Clans", type: :request do
     end
   end
 
-  describe "GET /update" do
+  describe "PATCH /update" do
     let(:clan) { create(:clan, user: user) }
     let(:http_request) { patch api_v1_clan_path(clan.id), headers: headers, params: clan_params, xhr: true }
     let(:updated_name) { 'updated name' }
@@ -135,7 +135,7 @@ RSpec.describe "Api::V1::Clans", type: :request do
     end
   end
 
-  describe "GET /destroy" do
+  describe "DELETE /destroy" do
     let!(:clan) { create(:clan, user: user) }
     let(:http_request) { delete api_v1_clan_path(clan.id), headers: headers, xhr: true }
 
