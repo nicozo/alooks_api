@@ -65,4 +65,5 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include ResponseHelper
   config.include ActiveSupport::Testing::TimeHelpers
+  config.include LoginMarcos
 end
