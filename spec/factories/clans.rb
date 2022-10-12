@@ -10,10 +10,10 @@ FactoryBot.define do
     sequence(:enrollment_age) { |n| "test enrollment age#{n}" }
     sequence(:snipe) { |n| "test snipe#{n}" }
     sequence(:contact_means) { |n| "test contact_means#{n}" }
-    platform { Clan.platforms.values.first }
-    age { Clan.ages.values.first }
-    required_login { Clan.required_logins.values.first }
-    required_ranked { Clan.required_rankeds.values.first }
+    platform { Clan.platforms.keys.first }
+    age { Clan.ages.keys.first }
+    required_login { Clan.required_logins.keys.first }
+    required_ranked { Clan.required_rankeds.keys.first }
     required_vc { true }
     user
   end
