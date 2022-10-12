@@ -8,5 +8,9 @@ FactoryBot.define do
     trait :admin do
       role { admin }
     end
+
+    trait :profile_completed_user do
+      game_id { 'test_game_id' }
+    end
   end
 end

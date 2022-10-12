@@ -5,8 +5,8 @@ FactoryBot.define do
     recruitment_number { rand(1..2) }
     is_draft { false }
     application_deadline { 60.minutes.from_now }
-    platform { Room.platforms.values.first }
-    game_mode { Room.game_modes.values.first }
-    rank_tier { Room.rank_tiers.values.first }
+    platform { Room.platforms.keys.first }
+    game_mode { Room.game_modes.keys.first }
+    rank_tier { Room.rank_tiers.keys.first }
   end
 end
