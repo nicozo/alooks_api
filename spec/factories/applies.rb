@@ -4,5 +4,6 @@ FactoryBot.define do
     host_id { room.user_id }
     user
     room
+    is_read { false }
   end
 end
