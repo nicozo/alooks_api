@@ -4,13 +4,13 @@ class Api::V1::PasswordResetsController < ApplicationController
   def create
     user = User.find_by_email(params[:email])
 
-      if user
-        user.deliver_reset_password_instructions!
+    if user
+      user.deliver_reset_password_instructions!
 
-        head :ok
-      else
-        render status: :not_found, json: { status: 404, message: "User Not Found" }
-      end
+      head :ok
+    else
+      render status: :not_found, json: { status: 404, message: "User Not Found" }
+    end
   end
 
   def update

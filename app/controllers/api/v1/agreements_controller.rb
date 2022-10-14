@@ -9,10 +9,13 @@ class Api::V1::AgreementsController < ApplicationController
     if agreement.save
       MatchingMailer.announce_application_accepted(agreement).deliver_now
       Apply.find(params[:application_id]).destroy
+      room = Room.find(agreement.room_id)
+      room.recruitment_number -= 1 unless room.recruitment_number == 0
+      room.save!
 
       render json: agreement
     else
-      render json: agreement.errors, status: :bad_request
+      render_error_message(nil, agreement.errors)
     end
   end
 

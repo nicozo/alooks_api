@@ -31,9 +31,9 @@ gem 'enum_help', '~> 0.0.17'
 # JWT認証用 Doc: https://github.com/jwt/ruby-jwt/
 gem 'jwt', '~> 2.3'
 # uninitialized constant Mail::TestMailer (NameError)エラー回避
-gem 'net-smtp'
 gem 'net-imap'
 gem 'net-pop'
+gem 'net-smtp'
 
 # HTTPリクエスト用 Doc: https://github.com/httprb/http
 gem 'http', '~> 5.1'
@@ -47,9 +47,6 @@ gem 'rails-i18n', '~> 7.0', '>= 7.0.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-
-  # N+1問題用 Doc: https://github.com/flyerhzm/bullet/
-  gem 'bullet', '~> 7.0', '>= 7.0.1'
   # デバッグ用 Doc: https://github.com/deivid-rodriguez/pry-byebug/
   gem 'pry-byebug', '~> 3.9'
   # 環境変数用のgem Doc: https://github.com/bkeepers/dotenv/
@@ -77,6 +74,9 @@ group :development do
 
   # エラー画面用 Doc: https://github.com/BetterErrors/better_errors/
   gem 'better_errors', '~> 2.9', '>= 2.9.1'
+
+  # N+1問題用 Doc: https://github.com/flyerhzm/bullet/
+  gem 'bullet', '~> 7.0', '>= 7.0.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

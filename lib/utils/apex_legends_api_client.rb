@@ -33,7 +33,7 @@ module Utils
       res.to_s
     end
 
-    def get_news()
+    def get_news
       res = HTTP.get(
         NEWS_API_URI,
         params: {

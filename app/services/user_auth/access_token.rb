@@ -51,7 +51,7 @@ module UserAuth
     def verify_claims
       {
         verify_expiration: true,
-        algorithm: algorithm
+        algorithm:
       }
     end
   end

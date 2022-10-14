@@ -1,8 +1,12 @@
 FactoryBot.define do
   factory :room do
-    title { "MyString" }
-    current_squad_member { 1 }
+    user
+    sequence(:title) { |n| "title#{n}"}
+    recruitment_number { rand(1..2) }
     is_draft { false }
-    application_deadline { "2022-04-05 09:39:35" }
+    application_deadline { 60.minutes.from_now }
+    platform { Room.platforms.keys.first }
+    game_mode { Room.game_modes.keys.first }
+    rank_tier { Room.rank_tiers.keys.first }
   end
 end

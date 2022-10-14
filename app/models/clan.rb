@@ -10,7 +10,7 @@ class Clan < ApplicationRecord
   validates :personality, presence: true, length: { maximum: 50 }
   validates :enrollment, presence: true, length: { maximum: 50 }
   validates :activity_time, presence: true, length: { maximum: 50 }
-  validates :enrollment_age, presence: true, length: {  maximum: 50}
+  validates :enrollment_age, presence: true, length: { maximum: 50 }
   validates :snipe, presence: true, length: { maximum: 100 }
   validates :contact_means, presence: true, length: { maximum: 50 }
 
@@ -44,7 +44,7 @@ class Clan < ApplicationRecord
     master
     predator
   ], _prefix: true
-  
+
   def response_json
     as_json(
       only: %i[

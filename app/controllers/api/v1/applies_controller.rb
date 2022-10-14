@@ -3,7 +3,7 @@ class Api::V1::AppliesController < ApplicationController
   before_action :current_user_profile_completed?, only: %i[create]
 
   def index
-    applications = Apply.where(host_id: current_user.id).order(created_at: :desc)
+    applications = Apply.where(host_id: current_user.id).includes(association_tables).order(created_at: :desc)
 
     render json: applications.as_json(methods: %i[applicant applied_room])
   end
@@ -50,5 +50,9 @@ class Api::V1::AppliesController < ApplicationController
 
   def current_user_profile_completed?
     current_user.profile_completed || render_error_message(nil, 'Bad Request')
+  end
+
+  def association_tables
+    %i[user room]
   end
 end

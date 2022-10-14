@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
     @user = User.find user.id
     @url = ENV['API_DOMAIN'] + "/reset_password/update?id=" + @user.reset_password_token
     @top_url = ENV['API_DOMAIN']
-    mail(:to => @user.email,
-         :subject => "【エペスク】パスワードの変更をしてください")
+    mail(to: @user.email,
+         subject: "【エペスク】パスワードの変更をしてください")
   end
 end
