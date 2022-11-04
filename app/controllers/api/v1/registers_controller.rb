@@ -16,6 +16,7 @@ class Api::V1::RegistersController < ApplicationController
   def user_params
     params.require(:user).permit(
       :name,
+      :game_id,
       :email,
       :password,
       :password_confirmation
@@ -24,7 +25,7 @@ class Api::V1::RegistersController < ApplicationController
 
   def register_response
     {
-      user: @user.as_json(only: %i[id name])
+      user: @user.as_json(only: %i[id name game_id])
     }
   end
 end
