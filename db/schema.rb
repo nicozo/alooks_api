@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_02_123231) do
+ActiveRecord::Schema.define(version: 2022_11_04_161835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,22 +71,22 @@ ActiveRecord::Schema.define(version: 2022_10_02_123231) do
   create_table "clans", force: :cascade do |t|
     t.string "name", null: false
     t.string "concept", null: false
-    t.string "joining_process", null: false
-    t.string "prohibited_matters", null: false
+    t.string "joining_process"
+    t.string "prohibited_matters"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "enrollment", null: false
-    t.string "activity_time", null: false
-    t.string "enrollment_age", null: false
-    t.string "snipe", null: false
-    t.string "contact_means", null: false
+    t.string "enrollment"
+    t.string "activity_time"
+    t.string "enrollment_age"
+    t.string "snipe"
+    t.string "contact_means"
     t.integer "platform", default: 0, null: false
     t.integer "age", default: 0, null: false
     t.integer "required_login", default: 0, null: false
     t.integer "required_ranked", default: 0, null: false
     t.boolean "required_vc", default: true, null: false
-    t.string "personality", null: false
+    t.string "personality"
     t.index ["user_id"], name: "index_clans_on_user_id"
   end
 
