@@ -14,9 +14,6 @@ Rails.application.routes.draw do
       end
       resources :profile, only: %i[update]
       resources :applies, only: %i[index create destroy] do
-        collection do
-          get :my_applications
-        end
         member do
           patch :read
         end

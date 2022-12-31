@@ -1,7 +1,7 @@
 class Api::V1::RoomsController < ApplicationController
   before_action :set_room, only: %i[show edit update destroy]
   before_action :current_user_profile_completed?, only: %i[create]
-  skip_before_action :authenticate_user, only: %i[recent]
+  skip_before_action :authenticate_user, only: %i[index show recent]
 
   def index
     rooms = Room.all.includes(association_tables).order(created_at: :desc)
