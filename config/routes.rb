@@ -25,6 +25,7 @@ Rails.application.routes.draw do
           get :my_clan
         end
       end
+      resources :players, only: %i[index show create edit update destroy]
 
       namespace :admin do
         resource :sessions, only: %i[create destroy] do
