@@ -10,6 +10,7 @@ class User < ApplicationRecord
   has_many :applies, dependent: :destroy
   has_many :agreements, dependent: :destroy
   has_one :clan, dependent: :destroy
+  has_one :player, dependent: :destroy
   has_one_attached :avatar
 
   validates :password, length: { minimum: 7 }, if: -> { new_record? || changes[:crypted_password] }
