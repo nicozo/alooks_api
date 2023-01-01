@@ -1,4 +1,5 @@
 class Api::V1::PlayersController < ApplicationController
+  before_action :set_player, only: %i[show]
   before_action :current_user_profile_completed?, only: %i[create]
   skip_before_action :authenticate_user, only: %i[index show]
 
@@ -11,6 +12,7 @@ class Api::V1::PlayersController < ApplicationController
   end
 
   def show
+    render json: @player.response_json
   end
 
   def create
@@ -26,6 +28,10 @@ class Api::V1::PlayersController < ApplicationController
   end
 
   private
+
+  def set_player
+    @player = Player.find(params[:id])
+  end
 
   def association_tables
     %i[user]
