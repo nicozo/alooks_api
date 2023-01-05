@@ -17,12 +17,25 @@ class Api::V1::PlayersController < ApplicationController
   end
 
   def create
+    player = current_user.build_player(player_params)
+
+    if player.save
+      render json: player
+    else
+      render json: player.errors, status: :bad_request
+    end
   end
 
   def edit
+    render json: @player
   end
 
   def update
+    if @player.update(player_params)
+      render json: @player
+    else
+      render json: @player.errors, status: :bad_request
+    end
   end
 
   def destroy
@@ -39,5 +52,15 @@ class Api::V1::PlayersController < ApplicationController
 
   def association_tables
     %i[user]
+  end
+
+  def player_params
+    params.require(:player).permit(
+      :body
+    )
+  end
+
+  def current_user_profile_completed?
+    current_user.profile_completed || head(:bad_request)
   end
 end
