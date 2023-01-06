@@ -49,17 +49,11 @@ module Utils
         ApexLegendsApiClient.new
       end
 
-      def get_stats(params)
-        client.get_stats(params)
-      end
+      delegate :get_stats, to: :client
 
-      def get_map_data()
-        client.get_map_data()
-      end
+      delegate :get_map_data, to: :client
 
-      def get_news()
-        client.get_news()
-      end
+      delegate :get_news, to: :client
     end
   end
 end

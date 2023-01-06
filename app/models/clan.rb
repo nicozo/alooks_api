@@ -14,36 +14,36 @@ class Clan < ApplicationRecord
   validates :snipe, presence: true, length: { maximum: 100 }
   validates :contact_means, presence: true, length: { maximum: 50 }
 
-  enum platform: %w[
-    unlimited
-    PlayStation
-    Xbox
-    PC
-  ], _prefix: true
+  enum platform: {
+    "unlimited" => 0,
+    "PlayStation" => 1,
+    "Xbox" => 2,
+    "PC" => 3
+  }, _prefix: true
 
-  enum age: %w[
-    unlimited
-    high_school_student
-    adult
-  ], _prefix: true
+  enum age: {
+    "unlimited" => 0,
+    "high_school_student" => 1,
+    "adult" => 2
+  }, _prefix: true
 
-  enum required_login: %w[
-    unlimited
-    everyday
-    a_couple_of_times_a_week
-    three_or_four_times_a_week
-  ], _prefix: true
+  enum required_login: {
+    "unlimited" => 0,
+    "everyday" => 1,
+    "a_couple_of_times_a_week" => 2,
+    "three_or_four_times_a_week" => 3
+  } ,_prefix: true
 
-  enum required_ranked: %w[
-    unlimited
-    bronze
-    silver
-    gold
-    platinum
-    diamond
-    master
-    predator
-  ], _prefix: true
+  enum required_ranked: {
+    "unlimited" => 0,
+    "bronze" => 1,
+    "silver" => 2,
+    "gold" => 3,
+    "platinum" => 4,
+    "diamond" => 5,
+    "master" => 6,
+    "predator" => 7
+  }, _prefix: true
 
   def response_json
     as_json(

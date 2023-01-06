@@ -1,6 +1,6 @@
 inherit_from: .rubocop_todo.yml
 
-require: 
+require:
   - rubocop-rails
 
 AllCops:
@@ -11,6 +11,14 @@ AllCops:
   - 'spec/**/*'
   - 'node_modules/**/*'
   - 'app/channels/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
+MethodLength:
+  CountComments: false
+  Max: 20
 
 Style/Documentation:
   Enabled: false

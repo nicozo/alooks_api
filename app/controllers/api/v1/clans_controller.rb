@@ -1,5 +1,6 @@
 class Api::V1::ClansController < ApplicationController
   before_action :set_clan, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user, only: %i[index show]
 
   def index
     clans = Clan.all.includes(association_tables).order(created_at: :desc)

@@ -1,4 +1,4 @@
-class Api::V1::Admin::ClansController < ApplicationController
+class Api::V1::Admin::ClansController < Api::V1::Admin::BaseController
   before_action :set_clan, only: %i[update destroy]
 
   def index

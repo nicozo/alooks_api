@@ -22,12 +22,6 @@ class Api::V1::AppliesController < ApplicationController
 
   def destroy; end
 
-  def my_applications
-    applications = current_user.applies
-
-    render json: applications
-  end
-
   def read
     @application.is_read = true
     @application.save

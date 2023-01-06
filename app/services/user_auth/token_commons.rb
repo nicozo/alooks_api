@@ -33,7 +33,7 @@ module UserAuth
       return unless user_id
 
       crypt.decrypt_and_verify(user_id.to_s, purpose: :authorization)
-    rescue
+    rescue StandardError
       nil
     end
 

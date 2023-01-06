@@ -6,30 +6,30 @@ class Room < ApplicationRecord
   validates :title, presence: true, length: { maximum: 15 }
   validates :recruitment_number, presence: true, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 2 }
 
-  enum platform: %w[
-    PlayStation
-    Xbox
-    PC
-  ], _prefix: true
+  enum platform: {
+    "PlayStation" => 0,
+    "Xbox" => 1,
+    "PC" => 2
+  }, _prefix: true
 
-  enum rank_tier: %w[
-    rookie
-    bronze
-    silver
-    gold
-    platinum
-    diamond
-    master
-    predator
-    casual
-  ], _prefix: true
+  enum rank_tier: {
+    "rookie" => 0,
+    "bronze" => 1,
+    "silver" => 2,
+    "gold" => 3,
+    "platinum" => 4,
+    "diamond" => 5,
+    "master" => 6,
+    "predator" => 7,
+    "casual" => 8
+  }, _prefix: true
 
-  enum game_mode: %w[
-    casual
-    ranked
-    arena
-    event
-  ], _prefix: true
+  enum game_mode: {
+    "casual" => 0,
+    "ranked" => 1,
+    "arena" => 2,
+    "event" => 3
+  }, _prefix: true
 
   scope :recent, ->(count) { order(id: :desc).limit(count) }
 

@@ -14,9 +14,6 @@ Rails.application.routes.draw do
       end
       resources :profile, only: %i[update]
       resources :applies, only: %i[index create destroy] do
-        collection do
-          get :my_applications
-        end
         member do
           patch :read
         end
@@ -28,6 +25,11 @@ Rails.application.routes.draw do
           get :my_clan
         end
       end
+      resources :players, only: %i[index show create edit update destroy] do
+        collection do
+          get :recent
+        end
+      end
 
       namespace :admin do
         resource :sessions, only: %i[create destroy] do
@@ -37,6 +39,7 @@ Rails.application.routes.draw do
         resources :rooms, only: %i[index update destroy]
         resources :applies, only: %i[index update destroy]
         resources :clans, only: %i[index update destroy]
+        resources :players, only: %i[index update destroy]
       end
     end
   end
