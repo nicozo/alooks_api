@@ -4,7 +4,7 @@ class Api::V1::Admin::RoomsController < Api::V1::Admin::BaseController
   def index
     rooms = Room.all.order(id: :desc)
 
-    render json: rooms.as_json(methods: %i[host])
+    render json: rooms
   end
 
   def update
