@@ -39,6 +39,7 @@ Rails.application.routes.draw do
         resources :rooms, only: %i[index update destroy]
         resources :applies, only: %i[index update destroy]
         resources :clans, only: %i[index update destroy]
+        resources :players, only: %i[index update destroy]
       end
     end
   end
