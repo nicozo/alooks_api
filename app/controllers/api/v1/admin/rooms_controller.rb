@@ -1,4 +1,4 @@
-class Api::V1::Admin::RoomsController < ApplicationController
+class Api::V1::Admin::RoomsController < Api::V1::Admin::BaseController
   before_action :set_room, only: %i[update destroy]
 
   def index
