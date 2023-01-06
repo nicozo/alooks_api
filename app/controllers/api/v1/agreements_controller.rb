@@ -1,6 +1,8 @@
 class Api::V1::AgreementsController < ApplicationController
   def index
     agreements = current_user.agreements.order(created_at: :desc)
+
+    render json: agreements
   end
 
   def create
