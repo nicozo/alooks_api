@@ -1,7 +1,7 @@
 class Api::V1::PlayersController < ApplicationController
   before_action :set_player, only: %i[show edit update destroy]
   before_action :current_user_profile_completed?, only: %i[create]
-  skip_before_action :authenticate_user, only: %i[index show]
+  skip_before_action :authenticate_user, only: %i[index show recent]
 
   def index
     players = Player.all.includes(association_tables).order(created_at: :desc)
@@ -42,6 +42,15 @@ class Api::V1::PlayersController < ApplicationController
     @player.destroy!
 
     render json: @player
+  end
+
+  def recent
+    players = Player.recent(3).includes(association_tables)
+
+    render json: players.as_json(
+      only: %i[id body user_id],
+      methods: %i[host]
+    )
   end
 
   private

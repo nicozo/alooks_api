@@ -7,7 +7,8 @@ class Api::V1::RoomsController < ApplicationController
     rooms = Room.all.includes(association_tables).order(created_at: :desc)
 
     render json: rooms.as_json(
-      only: %i[id title recruitment_number application_deadline platform game_mode rank_tier user_id], methods: %i[host]
+      only: %i[id title recruitment_number application_deadline platform game_mode rank_tier user_id],
+      methods: %i[host]
     )
   end
 
